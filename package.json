@@ -1,9 +1,9 @@
 {
-  "name": "kwk-scrollytelling-template",
+  "name": "bwdc-scrollytelling",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://jasminesamra.github.io/kwk-scrollytelling-template",
+  "homepage": "https://tifpham021.github.io/bwdc-scrollytelling",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
