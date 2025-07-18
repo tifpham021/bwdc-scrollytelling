@@ -1,8 +1,10 @@
 <script>
   let { title, subtitle } = $props();
+  import titleBackground from "../images/title-page.png";
+  console.log("parkScene URL:", titleBackground);
 </script>
 
-<div class="title-card">
+<div class="title-card" style={`background-image: url('${titleBackground}')`}>
   <div class="content">
     <h1>{title}</h1>
     <p>{subtitle}</p>
@@ -13,7 +15,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@800&display=swap');
 
   .title-card {
-    background-image: url("/images/title-page.png");
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -22,6 +23,10 @@
     padding: 2rem;
     font-family: "Mukta Vaani", sans-serif;
     font-weight: 800;
+    z-index: 10;
+    background-size: cover;
+    background-position: center;
+    position: relative;
   }
 
   .content {

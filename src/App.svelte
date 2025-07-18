@@ -9,20 +9,18 @@
   import IntersectionObserverSectionCard from "./sections/IntersectionObserverSectionCard.svelte";
   import IntersectionObserverListExample from "./sections/IntersectionObserverListExample.svelte";
   import ParkScene from "./sections/ParkScene.svelte";
+  import HighSchoolScene from "./sections/HighSchoolScene.svelte";
+  import CollegeScene from "./sections/CollegeScene.svelte";
+  import GraduationScene from "./sections/GraduationScene.svelte";
+  import GoalScene from "./sections/GoalScene.svelte";
   import TestSection from "./sections/TestSection.svelte";
 </script>
 
 <main>
   <TitleSection />
   <ParkScene />
-  <RightAlignedExample />
-  <LeftAlignedExample />
-  <ImageExample />
-
-  <IntersectionObserverSectionCard />
-  <InteresectionObserverBasicExample />
-  <IntersectionObserverAlertExample />
-  <DisappearingDuckExample />
-  <IntersectionObserverListExample />
-  <TestSection/>
+  <HighSchoolScene />
+  <CollegeScene />
+  <GraduationScene />
+  <GoalScene />
 </main>
