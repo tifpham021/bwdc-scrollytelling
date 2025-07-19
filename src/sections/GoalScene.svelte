@@ -20,10 +20,10 @@
                 <div class="houses">
                     <div class="left">
                         <img src={leftHouse} alt="two story pink house"/>
-                        <img src={leftSign} alt="purple sold sign"/>
+                        <img src={leftSign} alt="purple sold sign" class="leftSign"/>
                     </div>
                     <div class="right">
-                        <img src={rightSign} alt="blue sold sign"/>
+                        <img src={rightSign} alt="blue sold sign" class="rightSign"/>
                         <img src={rightHouse} alt="one story pink house with blue roof"/>
                     </div>
                 </div>
@@ -34,8 +34,7 @@
   </div>
   
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap");
-    @import url("https://fonts.googleapis.com/css2?family=The+Nautigal:wght@700&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
     .background-wrapper {
         position: relative;
         top: 0;
@@ -46,21 +45,8 @@
         background-attachment: fixed;
     }
 
-    h1 {
-        background-color: #C1C0DF;
-        font-family: 'The Nautigal';
-        text-align: center;
-        font-size: 5.8em;
-        max-width: 400px;
-        border-radius: 30px;
-        padding: 5px 60px;
-        display: flex;
-        justify-self: center;
-        margin-top: -25%;
-    }
-
     h3 {
-        font-family: 'Tenor Sans', serif;
+        font-family: 'Inter', serif;
         background-color: #FCEFAF;
         max-width: 420px;
         font-size: 2.6em;
@@ -76,8 +62,25 @@
     .houses {
         display: flex;
         justify-content: center;
+        gap: 10%;
+    }
+
+    .left, .right {
+        display: flex;
+    }
+
+    .leftSign {
+        margin-left: -90px;
+        align-self: flex-end;
+        height: 200px;
+    }
+
+    .rightSign {
+        margin-right: -120px;
+        z-index: 1;
+        align-self: flex-end;
+        height: 180px;
     }
 
   
   </style>
-  

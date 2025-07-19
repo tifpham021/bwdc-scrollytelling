@@ -17,6 +17,7 @@
   
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
     .background-wrapper {
         position: relative;
         top: 0;
@@ -28,7 +29,7 @@
     }
 
     h3 {
-        font-family: 'Tenor Sans', serif;
+        font-family: 'Inter', serif;
         background-color: #A1BDD9;
         max-width: 350px;
         font-size: 2.6em;

@@ -30,6 +30,7 @@
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap");
     @import url("https://fonts.googleapis.com/css2?family=The+Nautigal:wght@700&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
     .background-wrapper {
         height: 250vh;
         display: flex;
@@ -69,7 +70,7 @@
     }
 
     h3 {
-        font-family: 'Tenor Sans', serif;
+        font-family: 'Inter', serif;
         background-color: #4175A9;
         max-width: 300px;
         font-size: 2.4em;

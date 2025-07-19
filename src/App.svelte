@@ -13,6 +13,9 @@
   import CollegeScene from "./sections/CollegeScene.svelte";
   import GraduationScene from "./sections/GraduationScene.svelte";
   import GoalScene from "./sections/GoalScene.svelte";
+  import CurtainsScene from "./sections/CurtainsScene.svelte";
+  import SplitScene from "./sections/SplitScene.svelte";
+  import SplitScreenCharts from "./sections/SplitScreenCharts.svelte";
   import TestSection from "./sections/TestSection.svelte";
 </script>
 
@@ -23,4 +26,8 @@
   <CollegeScene />
   <GraduationScene />
   <GoalScene />
+  <CurtainsScene />
+  <SplitScene />
+  <SplitScreenCharts />
+  
 </main>
