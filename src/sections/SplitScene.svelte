@@ -100,7 +100,7 @@
       background-image: url("/bwdc-scrollytelling/split-screen-scene.png");
       background-position: center;
       background-attachment: fixed;
-      height: 400vh;
+      height: 350vh;
       display: flex;
       justify-content: center;
       grid-template-columns: 1fr 1fr 1fr;

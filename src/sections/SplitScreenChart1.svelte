@@ -1,8 +1,6 @@
 <script>
     import Scroller from "../lib/Scroller.svelte";
     import ArticleText from "../lib/ArticleText.svelte";
-    import debt from "../images/debt.png";
-    import debtFree from "../images/debt-free.png";
     
     import Chart from '@highcharts/svelte';
     import Highcharts from 'highcharts';
@@ -101,11 +99,8 @@
     <div class="background-wrapper">
       <Scroller layout="right">
         {#snippet sticky()}
-        <div class="sticky-content">
+        <div class="sticky-content-1">
             <Chart {Highcharts} options={educationDebt} />
-        </div>
-        <div class="sticky-content">
-            <Chart {Highcharts} options={moneyHelp} />
         </div>
         {/snippet}
   
@@ -123,13 +118,6 @@
                 households, with the largest gap reaching 16.1% in 2022.
             </h3>
         </div>
-        <div class="chart-explanation-3">
-            <h3>
-                None of this is coincidental—it reflects deep-rooted inequalities. 
-                It shows how generational wealth and acccess significantly affects who 
-                takes on debt, shaping careers and futures alike.
-            </h3>
-        </div>
         {/snippet}
       </Scroller>
     </div>
@@ -144,12 +132,19 @@
       background-image: url("/bwdc-scrollytelling/split-screen-scene.png");
       background-position: center;
       background-attachment: fixed;
-      height: 440vh;
+      height: 350vh;
       display: flex;
     }
 
-    .sticky-content {
+    .sticky-content-1 {
         height: 50vh;
+        position: sticky;
+        top: 0;
+        align-content: center;
+    }
+
+    .sticky-content-2 {
+        height: 150vh;
         position: sticky;
         top: 0;
         align-content: center;
@@ -167,7 +162,7 @@
     .chart-explanation-2, .chart-explanation-3 {
         display: flex;
         justify-content: center;
-        margin-top: 50vh;
+        margin-top: 30vh;
         width: 100%;
         padding: 0 4rem;
 

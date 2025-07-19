@@ -15,7 +15,10 @@
   import GoalScene from "./sections/GoalScene.svelte";
   import CurtainsScene from "./sections/CurtainsScene.svelte";
   import SplitScene from "./sections/SplitScene.svelte";
-  import SplitScreenCharts from "./sections/SplitScreenCharts.svelte";
+  import SplitScreenChart1 from "./sections/SplitScreenChart1.svelte";
+  import SplitScreenChart2 from "./sections/SplitScreenChart2.svelte";
+  import OfficeScene from "./sections/OfficeScene.svelte";
+  import OfficeSceneChart from "./sections/OfficeSceneChart.svelte";
   import TestSection from "./sections/TestSection.svelte";
 </script>
 
@@ -28,6 +31,9 @@
   <GoalScene />
   <CurtainsScene />
   <SplitScene />
-  <SplitScreenCharts />
+  <SplitScreenChart1 />
+  <SplitScreenChart2 />
+  <OfficeScene />
+  <OfficeSceneChart />
   
 </main>
