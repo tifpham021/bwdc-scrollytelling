@@ -22,6 +22,9 @@
   import OfficeSceneChart2 from "./sections/OfficeSceneChart2.svelte";
   import FirstNewOfficeScene from "./sections/FirstNewOfficeScene.svelte";
   import NewOfficeScene from "./sections/NewOfficeScene.svelte";
+  import LastOfficeScene from "./sections/LastOfficeScene.svelte";
+  import SplitHousingScene from "./sections/SplitHousingScene.svelte";
+  import HouseScene from "./sections/HouseScene.svelte";
   import TestSection from "./sections/TestSection.svelte";
 </script>
 
@@ -41,5 +44,7 @@
   <OfficeSceneChart2 />
   <FirstNewOfficeScene />
   <NewOfficeScene />
-  
+  <LastOfficeScene />
+  <SplitHousingScene />
+  <HouseScene />
 </main>

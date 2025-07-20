@@ -70,29 +70,31 @@
                 their mortgages in Atlanta.
             </h3>
         </div>
-        <div class="results">
-            <div class="result-column">
-                <div class="sticky-content-result">
-                    <div class="cierra">
-                        <img src={cierraResult} alt="clipboard with an application that was denied"/>
+        <div class="scroll-wrapper">
+            <div class="results">
+                <div class="result-column">
+                    <div class="sticky-content-result">
+                        <div class="cierra">
+                            <img src={cierraResult} alt="clipboard with an application that was denied"/>
+                        </div>
+                    </div>
+                    <div class="scroll-result-cierra">
+                        <p>
+                            DENIED
+                        </p>
                     </div>
                 </div>
-                <div class="scroll-result-cierra">
-                    <p>
-                        DENIED
-                    </p>
-                </div>
-            </div>
-            <div class="result-column">
-                <div class="sticky-content-result">
-                    <div class="laura">
-                        <img src={lauraResult} alt="clipboard with an application that was approved"/>
+                <div class="result-column">
+                    <div class="sticky-content-result">
+                        <div class="laura">
+                            <img src={lauraResult} alt="clipboard with an application that was approved"/>
+                        </div>
                     </div>
-                </div>
-                <div class="scroll-result-laura">
-                    <p>
-                        APPROVED
-                    </p>
+                    <div class="scroll-result-laura">
+                        <p>
+                            APPROVED
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -251,11 +253,9 @@
         position: relative;
         z-index: 10;
         justify-content: center;
-        margin-left: auto;
-        margin-right: auto;
         display: flex;
         flex-direction: column;
-        margin-top: 10vh;
+        height: 200vh;
     }
 
     .scroll-result-cierra p {
@@ -264,9 +264,9 @@
         font-family: 'Anonymous Pro', serif;
         font-size: 2.5em;
         padding: 20px;
-        width: 350px;
+        width: 400px;
         border-radius: 40px;
-        margin: 0 auto;
+        transform: translateX(15%);
     }
 
     .scroll-result-laura p {
@@ -277,7 +277,7 @@
         padding: 20px;
         width: 400px;
         border-radius: 40px;
-        margin: 0 auto;
+        margin: 0 0 0 -20px;
     }
 
     .sticky-content-result {
@@ -292,6 +292,11 @@
 
     .result-column {
         margin: 0 auto;
+    }
+
+    .scroll-wrapper {
+        height: 300vh;
+        position: relative;
     }
 
   </style>
