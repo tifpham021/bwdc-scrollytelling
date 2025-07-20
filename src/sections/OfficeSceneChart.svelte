@@ -9,7 +9,7 @@
         chart: {
         type: 'line',
         height: 600,
-        width: 800,
+        width: 750,
         },
         title: {
         text: 'Total Income Over the Span of 5 Years'
@@ -62,6 +62,12 @@
                 quickly turned into a wealth gap of <span>$60,000.</span>
             </h3>
         </div>
+        <div class="chart-explanation-2">
+            <h3>
+                 Laura and Cierra's story isn't unique. Across the entire country, racial income gaps persist 
+                 and are much more common than we think.
+            </h3>
+        </div>
         {/snippet}
       </Scroller>
     </div>
@@ -82,14 +88,7 @@
     }
 
     .sticky-content-1 {
-        height: 50vh;
-        position: sticky;
-        top: 0;
-        align-content: center;
-    }
-
-    .sticky-content-2 {
-        height: 150vh;
+        height: 100vh;
         position: sticky;
         top: 0;
         align-content: center;
@@ -104,8 +103,17 @@
 
     }
 
+    .chart-explanation-2 {
+        display: flex;
+        justify-content: center;
+        margin-top: 50vh;
+        width: 100%;
+        padding: 0 2rem;
+
+    }
+
     
-    .chart-explanation-1 h3 {
+    .chart-explanation-1 h3, .chart-explanation-2 h3 {
         color: white;
         background-color: #1C1C6E;
         padding: 40px 30px;

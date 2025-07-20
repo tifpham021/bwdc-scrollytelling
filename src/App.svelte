@@ -19,6 +19,9 @@
   import SplitScreenChart2 from "./sections/SplitScreenChart2.svelte";
   import OfficeScene from "./sections/OfficeScene.svelte";
   import OfficeSceneChart from "./sections/OfficeSceneChart.svelte";
+  import OfficeSceneChart2 from "./sections/OfficeSceneChart2.svelte";
+  import FirstNewOfficeScene from "./sections/FirstNewOfficeScene.svelte";
+  import NewOfficeScene from "./sections/NewOfficeScene.svelte";
   import TestSection from "./sections/TestSection.svelte";
 </script>
 
@@ -35,5 +38,8 @@
   <SplitScreenChart2 />
   <OfficeScene />
   <OfficeSceneChart />
+  <OfficeSceneChart2 />
+  <FirstNewOfficeScene />
+  <NewOfficeScene />
   
 </main>
