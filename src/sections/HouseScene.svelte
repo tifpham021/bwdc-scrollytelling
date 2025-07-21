@@ -6,6 +6,31 @@
 
     import Chart from '@highcharts/svelte';
     import Highcharts from 'highcharts';
+    import { fade } from 'svelte/transition';
+
+    let visible1 = false;
+    let visible2 = false;
+    let visible3 = false;
+    let visible4 = false;
+    let visible5 = false;
+    let visible6 = false;
+
+    function inView(node, callback) {
+        const observer = new IntersectionObserver(
+        ([entry]) => {
+            callback(entry.isIntersecting);
+        },
+        { threshold: 0.5 }
+        );
+
+        observer.observe(node);
+
+        return {
+        destroy() {
+            observer.unobserve(node);
+        }
+        };
+    }
 
     let showCumulative = false;
 
@@ -70,14 +95,18 @@
       {/snippet}
 
         {#snippet scrolly()}
-            <div class="scrolly1">
+            <div class="scrolly1" use:inView={(val) => (visible1 = val)}
+                transition:fade
+                class:invisible={!visible1}>
                 <h3>
                     Let’s see how buying a home helped 
                     Laura grow her wealth over five years.
                 </h3>
                 <img src={house} alt="2 story magenta house"/>
             </div>
-            <div class="scrolly2">
+            <div class="scrolly2" use:inView={(val) => (visible2 = val)}
+                transition:fade
+                class:invisible={!visible2}>
                 <h3>
                     To understand how that growth happened, here are
                     the details of her home purchase—what 
@@ -89,7 +118,9 @@
     </Scroller>
     <div class="scene3">
         <div class="scrolls">
-            <div class="scrolly-text1">
+            <div class="scrolly-text1" use:inView={(val) => (visible4 = val)}
+                transition:fade
+                class:invisible={!visible4}>
                 <p>
                     <span>Purchase price:</span> $350,000
                 </p>
@@ -106,19 +137,25 @@
                     <span>Annual home appreciation:</span> 4% 
                 </p>
             </div>
-            <div class="scrolly-text2">
+            <div class="scrolly-text2" use:inView={(val) => (visible5 = val)}
+                transition:fade
+                class:invisible={!visible5}>
                 <p>In five years, Laura’s home <span>grew in value by over $75,000.</span> 
                     She also paid down about $35,000 of her loan. Together, her 
                     equity rose from $35,000 to nearly $146,000 — a <span>$110,000 gain 
                     in wealth from homeownership.</span></p>
             </div>
         </div>
-            <div class="sticky1">
+            <div class="sticky1" use:inView={(val) => (visible3 = val)}
+                transition:fade
+                class:invisible={!visible3}>
                 <Chart {Highcharts} options={lauraHomeEquity} />
                 <button on:click={showCumulativeEquity}>Click to see the total home equity Laura earned</button>
             </div>
     </div>
-    <div class="scene4">
+    <div class="scene4" use:inView={(val) => (visible6 = val)}
+        transition:fade
+        class:invisible={!visible6}>
         <img src={apartment} alt="4 story red apartment"/>
         <h3>
             While Laura’s wealth grew through homeownership, let’s see how renting 
@@ -135,7 +172,7 @@
     .background-wrapper {
         position: relative;
         top: 0;
-        height: 700vh;
+        height: 750vh;
         z-index: 1;
         background-image: url("/bwdc-scrollytelling/laura-house-scene.png");
         background-position: center;
@@ -158,11 +195,13 @@
     .scrolly1 {
         display: flex;
         align-self: center;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .scrolly2 {
         margin-top: 90vh;
         align-self: center;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .scene3 {
@@ -187,6 +226,7 @@
         margin-top: 100vh;
         z-index: 10;
         position: relative;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .scrolly-text2 {
@@ -202,6 +242,7 @@
         margin-top: 30vh;
         z-index: 10;
         position: relative;
+        transition: opacity 0.5s ease-in-out;
     }
 
     span {
@@ -219,12 +260,18 @@
         align-items: center;
         justify-content: center;
         z-index: 2;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .scene4 {
         display: flex;
         justify-content: center;
         margin-top: 70vh;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .invisible {
+      opacity: 0;
     }
 
     button {

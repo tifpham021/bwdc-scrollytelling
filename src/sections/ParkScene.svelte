@@ -11,6 +11,8 @@
   import { fade } from 'svelte/transition';
 
   let visible1 = false;
+  let visibleText = false;
+  let visibleBench = false;
   let visible2 = false;
   let visible3 = false;
 
@@ -38,16 +40,21 @@
       {#snippet sticky()}{/snippet}
 
       {#snippet scrolly()}
-        <div class="park-content"
-        use:inView={(val) => (visible1 = val)}
-        transition:fade
-        class:invisible={!visible1}>
-          <img src={tree1} alt="tree" class="tree" />
+        <div class="park-content">
+          <img src={tree1} alt="tree" class="tree" use:inView={(val) => (visible1 = val)}
+          transition:fade
+          class:invisible={!visible1}/>
           <div class="center">
-            <h1>Here's Who Our Story Will Follow Today</h1>
-            <img src={bench} alt="bench" class="bench" />
+            <h1 use:inView={(val) => (visibleText = val)}
+              transition:fade
+              class:invisible={!visibleText} class="park-text">Here's Who Our Story Will Follow Today</h1>
+            <img src={bench} alt="bench" class="bench" use:inView={(val) => (visibleBench = val)}
+            transition:fade
+            class:invisible={!visibleBench}/>
           </div>
-          <img src={tree2} alt="tree" class="tree" />
+          <img src={tree2} alt="tree" class="tree" use:inView={(val) => (visible1 = val)}
+          transition:fade
+          class:invisible={!visible1}/>
         </div>
 
         <div class="character-intro" 
@@ -105,7 +112,6 @@
   .park-content {
     display: flex;
     justify-content: center;
-    transition: opacity 0.5s ease-in-out;
   }
 
   .park-content h1 {
@@ -124,11 +130,17 @@
     max-width: 370px;
     display: flex;
     justify-self: center;
+    transition: opacity 0.5s ease-in-out;
   }
 
   .tree {
     max-width: 500px;
     max-height: 600px;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .park-text {
+    transition: opacity 0.5s ease-in-out;
   }
 
   .character-intro {
@@ -181,5 +193,5 @@
 
   .invisible {
       opacity: 0;
-    }
+  }
 </style>

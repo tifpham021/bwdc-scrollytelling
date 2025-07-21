@@ -7,6 +7,39 @@
     import homebuyer from "../images/getting-home.png";
     import goodCredit from "../images/good-credit.png";
     
+    import { fade } from 'svelte/transition';
+
+    let visible1 = false;
+    let visible2 = false;
+    let visible3 = false;
+    let visible4 = false;
+    let visible5 = false;
+    let visible6 = false;
+    let visible7 = false;
+    let visible8 = false;
+    let visible9 = false;
+    let visible10 = false;
+    let visible11 = false;
+    let visible12 = false;
+    let visible13 = false;
+    let visible14 = false;
+
+    function inView(node, callback) {
+        const observer = new IntersectionObserver(
+        ([entry]) => {
+            callback(entry.isIntersecting);
+        },
+        { threshold: 0.5 }
+        );
+
+        observer.observe(node);
+
+        return {
+        destroy() {
+            observer.unobserve(node);
+        }
+        };
+    }
   </script>
   
   <div class="background-wrapper">
@@ -16,7 +49,9 @@
       {/snippet}
 
         {#snippet scrolly()}
-            <div class="scrolly1">
+            <div class="scrolly1" use:inView={(val) => (visible1 = val)}
+                transition:fade
+                class:invisible={!visible1}>
                 <img src={cierra} alt="Black woman smiling and waving in a pink shirt and blue shorts" class="cierra"/>
                 <h3>
                     The story of Laura and Cierra isn’t just 
@@ -26,15 +61,21 @@
                 <img src={laura} alt="White woman smiling and waving in a blue dress" class="laura"/>
             </div>
             <div class="scrolly2">
-                <img src={map} alt="blank blue map of the United States" class="map"/>
-                <h3 class="map-text">
+                <img src={map} alt="blank blue map of the United States" class="map" use:inView={(val) => (visible2 = val)}
+                transition:fade
+                class:invisible={!visible2}/>
+                <h3 class="map-text" use:inView={(val) => (visible3 = val)}
+                    transition:fade
+                    class:invisible={!visible3}>
                     It <span>reflects the systemic forces</span> that shape who 
                     gets to build wealth in America, and who is left 
                     behind <span>even when they work just as hard.</span>
                 </h3>
             </div>
             <div class="scrolly2">
-                <h3 class="after-map-text">
+                <h3 class="after-map-text" use:inView={(val) => (visible4 = val)}
+                    transition:fade
+                    class:invisible={!visible4}>
                     But this story doesn’t have to end in inequality. 
                     Let’s look at some current solutions and how we can begin 
                     to close the racial wealth gap.
@@ -43,18 +84,24 @@
       {/snippet}
     </Scroller>
     <div class="scene3">
-            <div class="sticky1">
+            <div class="sticky1" use:inView={(val) => (visible5 = val)}
+                transition:fade
+                class:invisible={!visible5}>
                 <h1 class="scene-header">1. Student Loan Forgiveness</h1>
                 <img src={freeFromDebt} alt="guy cutting off the burden of chain of debt" class="debt-free"/>
             </div>
             <div class="scrolls">
-                <div class="scrolly-text1">
+                <div class="scrolly-text1" use:inView={(val) => (visible6 = val)}
+                    transition:fade
+                    class:invisible={!visible6}>
                     <h2>What it Does</h2>
                     <li>Improves credit scores</li>
                     <li>Lowers debt-to-income ratios</li>
                     <li>Helps millions with homeownership</li>
                 </div>
-                <div class="scrolly-text2">
+                <div class="scrolly-text2" use:inView={(val) => (visible7 = val)}
+                    transition:fade
+                    class:invisible={!visible7}>
                     <h2>Importance</h2>
                     <p>
                         <span>Student loans were the starting point</span> that 
@@ -67,13 +114,17 @@
     </div>
     <div class="scene4">
         <div class="scrolls">
-            <div class="scrolly-text1">
+            <div class="scrolly-text1" use:inView={(val) => (visible8 = val)}
+                transition:fade
+                class:invisible={!visible8}>
                 <h2>What it Does</h2>
                 <li>Gives down payment support to individuals without family wealth</li>
                 <li>Allow more people to build</li>
                 <li>Allow more people to build their home equity</li>
             </div>
-            <div class="scrolly-text2">
+            <div class="scrolly-text2" use:inView={(val) => (visible9 = val)}
+                transition:fade
+                class:invisible={!visible9}>
                 <h2>Importance</h2>
                 <p>
                     <span>Family support gave Laura a head start into homeownership,</span> 
@@ -83,24 +134,32 @@
                 </p>
             </div>
         </div>
-        <div class="sticky1">
+        <div class="sticky1" use:inView={(val) => (visible10 = val)}
+            transition:fade
+            class:invisible={!visible10}>
             <h1 class="scene-header">2. First-Generation Homebuyer<br> Assistance</h1>
             <img src={homebuyer} alt="guy cutting off the burden of chain of debt" class="debt-free"/>
         </div>
     </div>
     <div class="scene5">
-        <div class="sticky1">
+        <div class="sticky1" use:inView={(val) => (visible11 = val)}
+            transition:fade
+            class:invisible={!visible11}>
             <h1 class="scene-header">3. Inclusive Credit<br> Scoring Reform</h1>
             <img src={goodCredit} alt="guy cutting off the burden of chain of debt" class="debt-free"/>
         </div>
         <div class="scrolls">
-            <div class="scrolly-text1">
+            <div class="scrolly-text1" use:inView={(val) => (visible12 = val)}
+                transition:fade
+                class:invisible={!visible12}>
                 <h2>What it Does</h2>
                 <li>Updates credit models to include more expenses to 
                     give a more fair picture of an individual’s creditworthiness
                 </li>
             </div>
-            <div class="scrolly-text2">
+            <div class="scrolly-text2" use:inView={(val) => (visible13 = val)}
+                transition:fade
+                class:invisible={!visible13}>
                 <h2>Importance</h2>
                 <p>
                     Cierra’s credit score was largely impacted by her <span>debt-to-income 
@@ -111,7 +170,9 @@
             </div>
         </div>
     </div>
-    <div class="scene6">
+    <div class="scene6" use:inView={(val) => (visible14 = val)}
+        transition:fade
+        class:invisible={!visible14}>
         <h3>
             The racial wealth gap wasn’t created overnight and it won’t be solved overnight either. 
             But by recognizing how factors like student debt, unequal family wealth, and credit barriers 
@@ -130,7 +191,7 @@
     .background-wrapper {
         position: relative;
         top: 0;
-        height: 1605vh;
+        height: 1680vh;
         z-index: 1;
         background-image: url("/bwdc-scrollytelling/skyline-scene.png");
         background-position: center;
@@ -153,6 +214,7 @@
     .scrolly1 {
         display: flex;
         align-self: center;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .scrolly2 {
@@ -166,7 +228,7 @@
         margin-top: 90vh;
         text-align: center;
         justify-content: center;
-        height: 260vh;
+        height: 280vh;
         display: flex;
         margin: 3%;
         margin-top: 50vh;
@@ -193,6 +255,7 @@
         margin-top: 100vh;
         z-index: 10;
         position: relative;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .scrolly-text2 {
@@ -205,9 +268,10 @@
         font-size: 1.6em;
         border-radius: 100px;
         max-width: 380px;
-        margin-top: 50vh;
+        margin-top: 70vh;
         z-index: 10;
         position: relative;
+        transition: opacity 0.5s ease-in-out;
     }
 
     span {
@@ -226,11 +290,13 @@
         justify-content: center;
         z-index: 2;
         margin: 0 auto;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .scene4 {
         display: flex;
         justify-content: center;
+        height: 290vh;
     }
 
     .cierra {
@@ -246,6 +312,7 @@
         height: 500px;
         width: 900px;
         align-self: center;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .map-text {
@@ -260,12 +327,14 @@
         border-radius: 60px;
         align-self: center;
         margin: 5%;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .after-map-text {
         font-size: 2em;
         padding: 70px 50px;
         max-width: 500px;
+        transition: opacity 0.5s ease-in-out;
     }
 
     h2 {
@@ -288,6 +357,11 @@
     .scene6 h3 {
         max-width: 700px;
         padding: 70px;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .invisible {
+      opacity: 0;
     }
 
   </style>

@@ -3,6 +3,29 @@
     import ArticleText from "../lib/ArticleText.svelte";
     import house from "../images/house.png";
     import apartment from "../images/apartment.png";
+    import { fade } from 'svelte/transition';
+
+    let visible1 = false;
+    let visible2 = false;
+    let visible3 = false;
+    let visible4 = false;
+
+    function inView(node, callback) {
+        const observer = new IntersectionObserver(
+        ([entry]) => {
+            callback(entry.isIntersecting);
+        },
+        { threshold: 0.5 }
+        );
+
+        observer.observe(node);
+
+        return {
+        destroy() {
+            observer.unobserve(node);
+        }
+        };
+    }
   </script>
   
   <div class="background-wrapper">
@@ -12,7 +35,9 @@
       {/snippet}
 
         {#snippet scrolly()}
-            <div class="sticky1">
+            <div class="sticky1" use:inView={(val) => (visible1 = val)}
+                transition:fade
+                class:invisible={!visible1}>
                 <h3>
                     Over the next five years, these early disadvantages compound. While many <span>White 
                     homeowners begin building wealth</span> through rising home equity, <span>Black renters face 
@@ -24,11 +49,17 @@
             <div class="person-column cierra-column">
                 <div class="sticky-content">
                     <div class="cierra">
-                        <h2 class="name">Cierra</h2>
-                        <img src={apartment} alt="red 4 story apartment" class="apartment"/>
+                        <h2 class="name" use:inView={(val) => (visible2 = val)}
+                            transition:fade
+                            class:invisible={!visible2}>Cierra</h2>
+                        <img src={apartment} alt="red 4 story apartment" class="apartment" use:inView={(val) => (visible3 = val)}
+                        transition:fade
+                        class:invisible={!visible3}/>
                     </div>
                 </div>
-                <div class="scroll-text-cierra">
+                <div class="scroll-text-cierra" use:inView={(val) => (visible4 = val)}
+                    transition:fade
+                    class:invisible={!visible4}>
                     <h4>
                         <span>Cierra wasn't able to get approved for a mortgage,</span> so 
                         she was left with no choice but to rent.
@@ -38,11 +69,17 @@
             <div class="person-column laura-column">
                 <div class="sticky-content">
                     <div class="laura">
-                        <h2 class="name">Laura</h2>
-                        <img src={house} alt="2 story magenta house" class="house"/>
+                        <h2 class="name" use:inView={(val) => (visible2 = val)}
+                            transition:fade
+                            class:invisible={!visible2}>Laura</h2>
+                        <img src={house} alt="2 story magenta house" class="house" use:inView={(val) => (visible3 = val)}
+                        transition:fade
+                        class:invisible={!visible3}/>
                     </div>
                 </div>
-                <div class="scroll-text-laura">
+                <div class="scroll-text-laura" use:inView={(val) => (visible4 = val)}
+                    transition:fade
+                    class:invisible={!visible4}>
                     <h4>
                     <span>Laura</span> on that other hand <span> quickly approved for a 
                         mortgage</span> and was able to <span> her first home with ease.</span>
@@ -64,7 +101,7 @@
     .background-wrapper {
         position: relative;
         top: 0;
-        height: 780vh;
+        height: 750vh;
         z-index: 1;
         background-image: url("/bwdc-scrollytelling/housing-scene.png");
         background-position: center;
@@ -87,11 +124,12 @@
     .sticky1 {
         display: flex;
         align-self: center;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .scene2 {
         display: flex;
-        margin-top: 100vh;
+        margin-top: 50vh;
         height: 450vh;
     }
 
@@ -115,6 +153,7 @@
         font-family: 'Satisfy', serif;
         text-align: center;
         font-size: 5em;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .sticky-content {
@@ -129,6 +168,11 @@
 
     .house {
         margin-top: 70px;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .apartment {
+        transition: opacity 0.5s ease-in-out;
     }
 
     h4 {
@@ -147,6 +191,11 @@
         margin-top: 100vh;
         z-index: 10;
         position: relative;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .invisible {
+      opacity: 0;
     }
 
   </style>

@@ -163,7 +163,7 @@
       background-image: url("/bwdc-scrollytelling/split-screen-scene.png");
       background-position: center;
       background-attachment: fixed;
-      height: 350vh;
+      height: 330vh;
       display: flex;
     }
 

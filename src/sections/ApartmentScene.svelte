@@ -6,6 +6,32 @@
 
     import Chart from '@highcharts/svelte';
     import Highcharts from 'highcharts';
+    import { fade } from 'svelte/transition';
+
+    let visible1 = false;
+    let visible2 = false;
+    let visible3 = false;
+    let visible4 = false;
+    let visible5 = false;
+    let visible6 = false;
+    let visible7 = false;
+
+    function inView(node, callback) {
+        const observer = new IntersectionObserver(
+        ([entry]) => {
+            callback(entry.isIntersecting);
+        },
+        { threshold: 0.5 }
+        );
+
+        observer.observe(node);
+
+        return {
+        destroy() {
+            observer.unobserve(node);
+        }
+        };
+    }
 
     let showCumulative = false;
 
@@ -52,7 +78,9 @@
       {/snippet}
 
         {#snippet scrolly()}
-            <div class="scrolly1">
+            <div class="scrolly1" use:inView={(val) => (visible1 = val)}
+                transition:fade
+                class:invisible={!visible1}>
                 <h3>
                     To understand how renting affected Cierra's 
                     financial picture, let's look at the details 
@@ -64,7 +92,9 @@
     </Scroller>
     <div class="scene3">
         <div class="scrolls">
-            <div class="scrolly-text1">
+            <div class="scrolly-text1" use:inView={(val) => (visible3 = val)}
+                transition:fade
+                class:invisible={!visible3}>
                 <p>
                     When Cierra <span>began renting,</span> her annual rent 
                     was <span>$18,000 ($1500 per month). </span>
@@ -74,7 +104,9 @@
                     adding up quickly with <span>no equity gained in return.</span>
                 </p>
             </div>
-            <div class="scrolly-text2">
+            <div class="scrolly-text2" use:inView={(val) => (visible4 = val)}
+                transition:fade
+                class:invisible={!visible4}>
                 <p>
                     In five years, Cierra paid <span>a total of $127,368 in rent</span>. 
                     Unlike a mortgage, where monthly payments help build ownership 
@@ -83,21 +115,33 @@
                 </p>
             </div>
         </div>
-            <div class="sticky1">
+            <div class="sticky1" use:inView={(val) => (visible2 = val)}
+                transition:fade
+                class:invisible={!visible2}>
                 <Chart {Highcharts} options={CierraHomeEquity} />
                 <button on:click={showCumulativeRent}>Click to see the total rent Cierra paid</button>
             </div>
     </div>
     <div class="summary">
-        <h2 class="summary-header">To Summarize...</h2>
+        <h2 class="summary-header" use:inView={(val) => (visible5 = val)}
+            transition:fade
+            class:invisible={!visible5}>To Summarize...</h2>
         <div class="summary-content">
             <div class="summary-cierra">
-                <img src={apartment} alt="4 story red apartment"/>
-                <h3>In contrast, Cierra <span>paid $127,368 in rent</span> during the same period, with nothing to show for it—no ownership, no equity, and no lasting financial benefit.</h3>
+                <img src={apartment} alt="4 story red apartment" use:inView={(val) => (visible6 = val)}
+                transition:fade
+                class:invisible={!visible6}/>
+                <h3 use:inView={(val) => (visible7 = val)}
+                    transition:fade
+                    class:invisible={!visible7}>In contrast, Cierra <span>paid $127,368 in rent</span> during the same period, with nothing to show for it—no ownership, no equity, and no lasting financial benefit.</h3>
             </div>
             <div class="summary-laura"> 
-                <img src={house} alt="2 story pink house"/>
-                <h3>Over five years, Laura <span>built nearly $110,000 in home equity</span>—turning her monthly payments into long-term wealth.</h3>
+                <img src={house} alt="2 story pink house" use:inView={(val) => (visible6 = val)}
+                transition:fade
+                class:invisible={!visible6}/>
+                <h3 use:inView={(val) => (visible7 = val)}
+                    transition:fade
+                    class:invisible={!visible7}>Over five years, Laura <span>built nearly $110,000 in home equity</span>—turning her monthly payments into long-term wealth.</h3>
             </div>
         </div>
     </div>
@@ -135,13 +179,14 @@
     .scrolly1 {
         display: flex;
         align-self: center;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .scene3 {
         margin-top: 90vh;
         text-align: center;
         justify-content: space-between;
-        height: 240vh;
+        height: 290vh;
         display: flex;
         margin: 3%;
     }
@@ -159,6 +204,7 @@
         margin-top: 100vh;
         z-index: 10;
         position: relative;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .scrolly-text2 {
@@ -171,9 +217,10 @@
         font-size: 1.6em;
         border-radius: 80px;
         max-width: 550px;
-        margin-top: 30vh;
+        margin-top: 70vh;
         z-index: 10;
         position: relative;
+        transition: opacity 0.5s ease-in-out;
     }
 
     span {
@@ -192,6 +239,7 @@
         justify-content: center;
         z-index: 2;
         flex-direction: column;
+        transition: opacity 0.5s ease-in-out;
     }
 
     button {
@@ -227,6 +275,7 @@
         font-weight: 700;
         font-size: 4em;
         margin: 80px;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .summary-content {
@@ -246,10 +295,12 @@
         margin: 0 auto;
         max-width: 100%; 
         height: 55%;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .summary-laura img {
         height: 50%;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .summary-laura {
@@ -263,6 +314,7 @@
         max-width: 450px;
         text-align: center;
         padding: 50px;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .summary-laura h3 {
@@ -272,6 +324,11 @@
         justify-self: center;
         padding: 50px;
         margin-top: 55px;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .invisible {
+      opacity: 0;
     }
 
   </style>

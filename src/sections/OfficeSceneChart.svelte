@@ -4,6 +4,7 @@
     
     import Chart from '@highcharts/svelte';
     import Highcharts from 'highcharts';
+    import { fade } from 'svelte/transition'
 
     let income = {
         chart: {
@@ -46,24 +47,51 @@
             }
         ],
     };
+
+    let visible1 = false;
+    let visible2 = false;
+    let visible3 = false;
+
+    function inView(node, callback) {
+        const observer = new IntersectionObserver(
+        ([entry]) => {
+            callback(entry.isIntersecting);
+        },
+        { threshold: 0.5 }
+        );
+
+        observer.observe(node);
+
+        return {
+        destroy() {
+            observer.unobserve(node);
+        }
+        };
+    }
   </script>
     <div class="background-wrapper">
       <Scroller layout="right">
         {#snippet sticky()}
-        <div class="sticky-content-1">
+        <div class="sticky-content-1" use:inView={(val) => (visible1 = val)}
+            transition:fade
+            class:invisible={!visible1}>
             <Chart {Highcharts} options={income} />
         </div>
         {/snippet}
   
         {#snippet scrolly()}
         <div class="chart-text">
-            <div class="chart-explanation-1">
+            <div class="chart-explanation-1" use:inView={(val) => (visible2 = val)}
+                transition:fade
+                class:invisible={!visible2}>
                 <h3>
                     What started as only <span>$12,000</span>, 
                     quickly turned into a wealth gap of <span>$60,000.</span>
                 </h3>
             </div>
-            <div class="chart-explanation-2">
+            <div class="chart-explanation-2" use:inView={(val) => (visible3 = val)}
+                transition:fade
+                class:invisible={!visible3}>
                 <h3>
                     Laura and Cierra's story isn't unique. <span>Across the entire country, racial income gaps persist</span> 
                     and are much more common than we think.
@@ -96,6 +124,7 @@
         top: 0;
         align-content: center;
         margin: 0 auto;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .chart-text {
@@ -108,7 +137,7 @@
         margin-top: 100vh;
         width: 100%;
         padding: 0 2rem;
-
+        transition: opacity 0.5s ease-in-out;
     }
 
     .chart-explanation-2 {
@@ -117,7 +146,11 @@
         margin-top: 90vh;
         width: 100%;
         padding: 0 2rem;
+        transition: opacity 0.5s ease-in-out;
+    }
 
+    .invisible {
+      opacity: 0;
     }
 
     

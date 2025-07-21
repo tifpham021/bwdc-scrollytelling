@@ -4,6 +4,30 @@
     
     import Chart from '@highcharts/svelte';
     import Highcharts from 'highcharts';
+    import { fade } from 'svelte/transition';
+
+    let visible1 = false;
+    let visible2 = false;
+    let visible3 = false;
+    let visible4 = false;
+    let visible5 = false;
+
+    function inView(node, callback) {
+        const observer = new IntersectionObserver(
+        ([entry]) => {
+            callback(entry.isIntersecting);
+        },
+        { threshold: 0.5 }
+        );
+
+        observer.observe(node);
+
+        return {
+        destroy() {
+            observer.unobserve(node);
+        }
+        };
+    }
 
     let mortgages = {
         chart: {
@@ -57,26 +81,34 @@
         <div class="top">
             <Scroller layout="right">
                 {#snippet sticky()}
-                <div class="sticky-content-1">
+                <div class="sticky-content-1" use:inView={(val) => (visible1 = val)}
+                    transition:fade
+                    class:invisible={!visible1}>
                     <Chart {Highcharts} options={mortgages} />
                 </div>
                 {/snippet}
         
                 {#snippet scrolly()}
-                <div class="chart-explanation-1">
+                <div class="chart-explanation-1" use:inView={(val) => (visible2 = val)}
+                    transition:fade
+                    class:invisible={!visible2}>
                     <h3>
                         Out of every 100 mortgage applicants, <span>0.65 Black individuals</span> are 
                         denied— compared to just <span>0.49 White individuals.</span>
 
                     </h3>
                 </div>
-                <div class="chart-explanation-2">
+                <div class="chart-explanation-2" use:inView={(val) => (visible3 = val)}
+                    transition:fade
+                    class:invisible={!visible3}>
                     <h3>
                         That may seem small at first, but it represents a nearly <span>33% higher 
                         denial rate </span> for Black applicants.
                     </h3>
                 </div>
-                <div class="chart-explanation-3">
+                <div class="chart-explanation-3" use:inView={(val) => (visible4 = val)}
+                    transition:fade
+                    class:invisible={!visible4}>
                     <h3>
                         The approval gap is even more striking: White applicants are <span> approved 
                         at a rate 75% higher</span> than Black applicants.
@@ -85,7 +117,9 @@
                 {/snippet}
             </Scroller>
         </div>
-        <div class="chart-explanation-4">
+        <div class="chart-explanation-4" use:inView={(val) => (visible5 = val)}
+            transition:fade
+            class:invisible={!visible5}>
             <h3>
                 Given the earlier data showing that <span>Black individuals earn less income and carry higher 
                 student debt than White individuals,</span> these financial disparities likely contribute to the 
@@ -106,7 +140,7 @@
       background-image: url("/bwdc-scrollytelling/office4-scene.png");
       background-position: center;
       background-attachment: fixed;
-      height: 650vh;
+      height: 700vh;
       display: flex;
       flex-direction: column;
     }
@@ -114,7 +148,7 @@
     .top {
         display: flex;
         flex-direction: row;
-        height: 450vh;
+        height: 530vh;
     }
 
     .sticky-content-1 {
@@ -123,6 +157,7 @@
         top: 0;
         align-content: center;
         margin-left: 40px;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .chart-explanation-1 {
@@ -131,28 +166,32 @@
         margin-top: 100vh;
         width: 100%;
         padding: 0 5rem;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .chart-explanation-2 {
         display: flex;
         justify-content: center;
-        margin-top: 50vh;
+        margin-top: 80vh;
         width: 100%;
         padding: 0 5rem;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .chart-explanation-3 {
         display: flex;
         justify-content: center;
-        margin-top: 50vh;
+        margin-top: 80vh;
         width: 100%;
         padding: 0 5rem;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .chart-explanation-4 {
         display: flex;
         justify-content: center;
         margin-top: 20vh;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .chart-explanation-4 h3 {
@@ -185,6 +224,10 @@
         font-family: 'Roboto', serif;
         font-weight: 700;
         font-size: 1em;
+    }
+
+    .invisible {
+      opacity: 0;
     }
 
   </style>

@@ -6,7 +6,30 @@
     
     import Chart from '@highcharts/svelte';
     import Highcharts from 'highcharts';
+    import { fade } from 'svelte/transition';
 
+    let visible1 = false;
+    let visible2 = false;
+    let visible3 = false;
+    let visible4 = false;
+
+    function inView(node, callback) {
+        const observer = new IntersectionObserver(
+        ([entry]) => {
+            callback(entry.isIntersecting);
+        },
+        { threshold: 0.5 }
+        );
+
+        observer.observe(node);
+
+        return {
+        destroy() {
+            observer.unobserve(node);
+        }
+        };
+    }
+    
     let medianIncome = {
         chart: {
         type: 'bar',
@@ -77,14 +100,19 @@
     <div class="background-wrapper">
       <Scroller layout="left">
         {#snippet sticky()}
-        <div class="sticky-content-1">
+        <div class="sticky-content-1" use:inView={(val) => (visible1 = val)}
+            transition:fade
+            class:invisible={!visible1}>
             <Chart {Highcharts} options={medianIncome} />
         </div>
         {/snippet}
   
         {#snippet scrolly()}
         <div class="scrolly-content">
-            <div class="chart-explanation-1">
+            <div class="chart-explanation-1"
+            use:inView={(val) => (visible2 = val)}
+            transition:fade
+            class:invisible={!visible2}>
                 <h3>
                     From 2010 to 2022, <span>White individuals 
                     consistently earned higher annual salaries 
@@ -92,21 +120,30 @@
                     a Bachelor's degree.</span>
                 </h3>
             </div>
-            <div class="chart-explanation-2">
+            <div class="chart-explanation-2"
+            use:inView={(val) => (visible3 = val)}
+            transition:fade
+            class:invisible={!visible3}>
                 <h3>
                     The <span>median annual income gap</span> between White and Black 
                     workers ranged from <span>$5,110</span> to <span>$18,460</span>
                     —year after year.
                 </h3>
             </div>
-            <div class="chart-explanation-3">
+            <div class="chart-explanation-3"
+            use:inView={(val) => (visible4 = val)}
+            transition:fade
+            class:invisible={!visible4}>
                 <h3>
                     <span>Think back to the comparison between Cierra and Laura: </span>
                     we’ve already seen how quickly these earnings gaps can 
                     compound over time.
                 </h3>
             </div>
-            <div class="chart-explanation-4">
+            <div class="chart-explanation-4"
+            use:inView={(val) => (visible1 = val)}
+            transition:fade
+            class:invisible={!visible1}>
                 <h3>
                     <span>Family wealth, student debt, and now income inequality</span>—all 
                     of these factors combine to <span>deepen the racial wealth gap across 
@@ -140,6 +177,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .chart-explanation-1 {
@@ -147,6 +185,7 @@
         justify-content: center;
         margin-top: 100vh;
         width: 100%;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .scrolly-content {
@@ -160,6 +199,7 @@
         justify-content: center;
         width: 100%;
         margin-top: 50vh;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .chart-explanation-3 {
@@ -167,6 +207,7 @@
         justify-content: center;
         width: 100%;
         margin-top: 50vh;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .chart-explanation-4 {
@@ -174,6 +215,11 @@
         justify-content: center;
         width: 100%;
         margin-top: 50vh;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .invisible {
+      opacity: 0;
     }
     
     .chart-explanation-1 h3, .chart-explanation-2 h3, .chart-explanation-3 h3, .chart-explanation-4 h3 {
