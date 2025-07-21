@@ -25,6 +25,8 @@
   import LastOfficeScene from "./sections/LastOfficeScene.svelte";
   import SplitHousingScene from "./sections/SplitHousingScene.svelte";
   import HouseScene from "./sections/HouseScene.svelte";
+  import ApartmentScene from "./sections/ApartmentScene.svelte";
+  import SkylineScene from "./sections/SkylineScene.svelte";
   import TestSection from "./sections/TestSection.svelte";
 </script>
 
@@ -47,4 +49,6 @@
   <LastOfficeScene />
   <SplitHousingScene />
   <HouseScene />
+  <ApartmentScene />
+  <SkylineScene />
 </main>
