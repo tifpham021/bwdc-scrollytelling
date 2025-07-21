@@ -199,7 +199,7 @@
     }
 
     .scrolly2 {
-        margin-top: 90vh;
+        margin-top: 70vh;
         align-self: center;
         transition: opacity 0.5s ease-in-out;
     }

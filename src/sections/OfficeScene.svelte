@@ -11,6 +11,8 @@
     let visible2 = false;
     let visible3 = false;
     let visible4 = false;
+    let visible5 = false;
+    let visible6 = false;
 
     function inView(node, callback) {
     const observer = new IntersectionObserver(
@@ -64,10 +66,14 @@
                     transition:fade
                     class:invisible={!visible4} class="laura-salary">Laura's annual salary was <span class="amount">$72,000.</span></h4>
         </div>
-        <div class="scene4">
+        <div class="scene4" use:inView={(val) => (visible5 = val)}
+            transition:fade
+            class:invisible={!visible5}>
             <h2>Laura makes <span class="amount">$12,000</span> more than Cierra every year.</h2>
         </div>
-        <div class="scene5">
+        <div class="scene5" use:inView={(val) => (visible6 = val)}
+            transition:fade
+            class:invisible={!visible6}>
             <h2>That may not seem like much of a difference, but it adds up over time.</h2>
         </div>
       {/snippet}
@@ -86,7 +92,7 @@
     .background-wrapper {
         position: relative;
         top: 0;
-        height: 450vh;
+        height: 580vh;
         z-index: 1;
         background-image: url("/bwdc-scrollytelling/office-scene.png");
         background-position: center;
@@ -117,7 +123,8 @@
     }
 
     .scene4 {
-        margin-top: 50vh;
+        margin-top: 90vh;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .scene4 h2, .scene5 h2 {
@@ -127,6 +134,7 @@
 
     .scene5 {
         margin-top: 1vh;
+        transition: opacity 0.5s ease-in-out;
     }
     
     .images {

@@ -290,10 +290,12 @@
     .credit-column {
         display: flex;
         flex-direction: column;
+        margin: 0 auto;
     }
 
     .credit-stuff {
         display: flex;
+        justify-content: center;
     }
 
     /* Transition scene */
