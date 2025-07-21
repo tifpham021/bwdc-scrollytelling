@@ -75,7 +75,7 @@
                     Let’s see how buying a home helped 
                     Laura grow her wealth over five years.
                 </h3>
-                <img src={house} />
+                <img src={house} alt="2 story magenta house"/>
             </div>
             <div class="scrolly2">
                 <h3>

@@ -117,7 +117,7 @@
             But by recognizing how factors like student debt, unequal family wealth, and credit barriers 
             can significantly shape opportunity, <span>we can begin to build a more equitable future. </span><br><br>
             Wealth shouldn’t depend on what you’re born with. <span>Wealth should be something everyone has the equal 
-            chance to build.
+            chance to build.</span>
         </h3>
     </div>
   </div>
