@@ -88,12 +88,6 @@
     .scene5 {
         margin-top: 1vh;
     }
-
-    .scene6 {
-        margin-top: 100vh;
-        position: relative;
-    }
-
     
     .images {
         display: flex;
@@ -130,13 +124,6 @@
 
     .laura-icon {
         height: 400px;
-    }
-
-    .sticky-content {
-        margin-top: 80vh;
-        position: sticky;
-        top: 0;
-        align-content: center;
     }
 
   </style>

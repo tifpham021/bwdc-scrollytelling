@@ -144,14 +144,7 @@
         align-content: center;
     }
 
-    .sticky-content-2 {
-        height: 150vh;
-        position: sticky;
-        top: 0;
-        align-content: center;
-    }
-
-    .chart-explanation-1, .chart-explanation-2, .chart-explanation-3 {
+    .chart-explanation-1, .chart-explanation-2 {
         display: flex;
         justify-content: center;
         margin-top: 100vh;
@@ -160,7 +153,7 @@
 
     }
 
-    .chart-explanation-2, .chart-explanation-3 {
+    .chart-explanation-2 {
         display: flex;
         justify-content: center;
         margin-top: 1vh;
@@ -169,7 +162,7 @@
 
     }
     
-    .chart-explanation-1 h3, .chart-explanation-2 h3, .chart-explanation-3 h3 {
+    .chart-explanation-1 h3, .chart-explanation-2 h3 {
         color: white;
         background-color: #734059;
         padding: 40px 30px;

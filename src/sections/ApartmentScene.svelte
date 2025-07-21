@@ -137,11 +137,6 @@
         align-self: center;
     }
 
-    .scrolly2 {
-        margin-top: 90vh;
-        align-self: center;
-    }
-
     .scene3 {
         margin-top: 90vh;
         text-align: center;
@@ -197,11 +192,6 @@
         justify-content: center;
         z-index: 2;
         flex-direction: column;
-    }
-
-    .scene4 {
-        display: flex;
-        justify-content: center;
     }
 
     button {

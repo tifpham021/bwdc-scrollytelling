@@ -172,10 +172,6 @@
         margin-top: 50vh;
     }
 
-    .scene3-content {
-        display: flex;
-    }
-
     .scene-header {
         font-size: 2.5em;
     }
