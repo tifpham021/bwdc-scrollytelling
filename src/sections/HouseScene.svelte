@@ -135,7 +135,7 @@
     .background-wrapper {
         position: relative;
         top: 0;
-        height: 650vh;
+        height: 700vh;
         z-index: 1;
         background-image: url("/bwdc-scrollytelling/laura-house-scene.png");
         background-position: center;
@@ -145,7 +145,7 @@
     h3 {
         font-family: 'Inter', serif;
         font-weight: 300;
-        background-color: #493a6d;
+        background-color: #4A6499;
         color: white;
         max-width: 650px;
         font-size: 2em;
@@ -176,9 +176,10 @@
 
     .scrolly-text1 {
         align-self: center;
-        background-color: #63528a;
+        background-color: #2f4776;
         color: white;
         font-family: 'Inter', serif;
+        font-weight: 300;
         padding: 40px;
         font-size: 1.6em;
         border-radius: 80px;
@@ -190,9 +191,10 @@
 
     .scrolly-text2 {
         align-self: center;
-        background-color: #63528a;
+        background-color: #2f4776;
         color: white;
         font-family: 'Inter', serif;
+        font-weight: 300;
         padding: 40px;
         font-size: 1.6em;
         border-radius: 80px;
@@ -203,7 +205,9 @@
     }
 
     span {
-        font-family: 'Teachers', serif;
+        font-family: 'Roboto', serif;
+        font-weight: 500;
+        font-size: 1em;
     }
 
     .sticky1 {
@@ -220,6 +224,7 @@
     .scene4 {
         display: flex;
         justify-content: center;
+        margin-top: 70vh;
     }
 
     button {
@@ -227,8 +232,9 @@
         border: none;
         padding: 30px;
         border-radius: 40px;
-        font-family: 'Teachers', serif;
-        font-size: 1.4em;
+        font-family: 'Roboto', serif;
+        font-weight: 700;
+        font-size: 1.5em;
         box-shadow: 1px 3px 2px rgb(66, 107, 141);
         margin: 20px;
         color: white;
@@ -243,6 +249,7 @@
         transform: scale(0.98);
         box-shadow: 1px 3px 2px rgb(49, 80, 106);
     }
+
 
   </style>
   

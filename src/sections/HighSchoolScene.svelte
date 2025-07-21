@@ -10,7 +10,7 @@
       {/snippet}
   
       {#snippet scrolly()}
-        <h3>They both graducated high school in 2015.</h3>
+        <h3>They both graduated high school in 2015.</h3>
       {/snippet}
     </Scroller>
   </div>
@@ -30,12 +30,13 @@
 
     h3 {
         font-family: 'Inter', serif;
+        font-weight: 500;
         background-color: #A1BDD9;
-        max-width: 350px;
-        font-size: 2.6em;
+        max-width: 550px;
+        font-size: 2.4em;
         text-align: center;
         padding: 40px 25px;
-        border-radius: 40px;
+        border-radius: 70px;
         display: flex;
         align-self: center;
     }

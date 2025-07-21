@@ -113,9 +113,9 @@
         </div>
         <div class="chart-explanation-2">
             <h3>
-                Over more than two decades, data shows that Black households 
+                Over more than two decades, data shows that <span>Black households 
                 consistently carried higher student loan debt compared to White 
-                households, with the largest gap reaching 16.1% in 2022.
+                households,</span> with the largest gap reaching 16.1% in 2022.
             </h3>
         </div>
         {/snippet}
@@ -125,6 +125,7 @@
   <style>
     @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&display=swap");
     @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
     .background-wrapper {
       position: relative;
       top: 0;
@@ -162,7 +163,7 @@
     .chart-explanation-2, .chart-explanation-3 {
         display: flex;
         justify-content: center;
-        margin-top: 30vh;
+        margin-top: 1vh;
         width: 100%;
         padding: 0 4rem;
 
@@ -174,9 +175,16 @@
         padding: 40px 30px;
         max-width: 500px;
         font-size: 1.7em;
-        border-radius: 40px;
+        border-radius: 70px;
         text-align: center;
         font-family: 'Inter', serif;
+        font-weight: 300;
+    }
+    
+    span {
+        font-family: 'Roboto', serif;
+        font-weight: 700;
+        font-size: 1em;
     }
 
   </style>

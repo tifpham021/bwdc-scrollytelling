@@ -30,7 +30,7 @@
                 </div>
                 <div class="scroll-text-cierra">
                     <h4>
-                        Cierra wasn't able to get approved for a mortgage, so 
+                        <span>Cierra wasn't able to get approved for a mortgage,</span> so 
                         she was left with no choice but to rent.
                     </h4>
                 </div>
@@ -44,8 +44,8 @@
                 </div>
                 <div class="scroll-text-laura">
                     <h4>
-                        Laura on that other hand was quickly approved for a 
-                        mortgage and was able to purchase her first home with ease.
+                    <span>Laura</span> on that other hand <span> quickly approved for a 
+                        mortgage</span> and was able to <span> her first home with ease.</span>
                     </h4>
                 </div>
             </div>
@@ -58,7 +58,7 @@
   
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap");
-    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
     @import url("https://fonts.googleapis.com/css2?family=Teachers:wght@700&display=swap");
     @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
     .background-wrapper {
@@ -74,7 +74,7 @@
     h3 {
         font-family: 'Inter', serif;
         font-weight: 300;
-        background-color: #493a6d;
+        background-color: #4A6499;
         color: white;
         max-width: 650px;
         font-size: 2em;
@@ -96,7 +96,9 @@
     }
 
     span {
-        font-family: 'Teachers', serif;
+        font-family: 'Roboto', serif;
+        font-weight: 700;
+        font-size: 1em;
     }
 
     .person-column {
@@ -131,12 +133,12 @@
 
     h4 {
         font-family: 'Inter', serif;
+        font-weight: 300;
         text-align: center;
-        background-color: #565b85;
-        font-weight: 500;
-        font-size: 1.6em;
+        background-color: #4c6597;
+        font-size: 1.8em;
         max-width: 400px;
-        padding: 30px 50px;
+        padding: 40px 50px;
         border-radius: 80px;
         color: white;
     }

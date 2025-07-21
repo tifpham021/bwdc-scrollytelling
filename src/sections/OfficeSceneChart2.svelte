@@ -83,34 +83,36 @@
         {/snippet}
   
         {#snippet scrolly()}
-        <div class="chart-explanation-1">
-            <h3>
-                From 2010 to 2022, White individuals 
-                consistently earned higher annual salaries 
-                than Black individuals—even when both held 
-                a Bachelor's degree.
-            </h3>
-        </div>
-        <div class="chart-explanation-2">
-            <h3>
-                The median annual income gap between White and Black 
-                workers ranged from <span>$5,110</span> to <span>$18,460</span>
-                —year after year.
-            </h3>
-        </div>
-        <div class="chart-explanation-3">
-            <h3>
-                Think back to the comparison between Cierra and Laura: 
-                we’ve already seen how quickly these earnings gaps can 
-                compound over time.
-            </h3>
-        </div>
-        <div class="chart-explanation-4">
-            <h3>
-                Family wealth, student debt, and now income inequality—all 
-                of these factors combine to deepen the racial wealth gap across 
-                generations.
-            </h3>
+        <div class="scrolly-content">
+            <div class="chart-explanation-1">
+                <h3>
+                    From 2010 to 2022, <span>White individuals 
+                    consistently earned higher annual salaries 
+                    than Black individuals</span>—even when <span>both held 
+                    a Bachelor's degree.</span>
+                </h3>
+            </div>
+            <div class="chart-explanation-2">
+                <h3>
+                    The <span>median annual income gap</span> between White and Black 
+                    workers ranged from <span>$5,110</span> to <span>$18,460</span>
+                    —year after year.
+                </h3>
+            </div>
+            <div class="chart-explanation-3">
+                <h3>
+                    <span>Think back to the comparison between Cierra and Laura: </span>
+                    we’ve already seen how quickly these earnings gaps can 
+                    compound over time.
+                </h3>
+            </div>
+            <div class="chart-explanation-4">
+                <h3>
+                    <span>Family wealth, student debt, and now income inequality</span>—all 
+                    of these factors combine to <span>deepen the racial wealth gap across 
+                    generations.</span>
+                </h3>
+            </div>
         </div>
         {/snippet}
       </Scroller>
@@ -128,11 +130,11 @@
       background-image: url("/bwdc-scrollytelling/office-scene.png");
       background-position: center;
       background-attachment: fixed;
-      height: 490vh;
+      height: 550vh;
     }
 
     .sticky-content-1 {
-        height: 50vh;
+        height: 100vh;
         position: sticky;
         top: 0;
         display: flex;
@@ -145,7 +147,12 @@
         justify-content: center;
         margin-top: 100vh;
         width: 100%;
+    }
 
+    .scrolly-content {
+        position: relative;
+        z-index: 2;
+        height: 430vh;
     }
 
     .chart-explanation-2 {
@@ -172,16 +179,19 @@
     .chart-explanation-1 h3, .chart-explanation-2 h3, .chart-explanation-3 h3, .chart-explanation-4 h3 {
         color: white;
         background-color: #1C1C6E;
-        padding: 40px 30px;
+        padding: 50px 40px;
         max-width: 500px;
         font-size: 1.7em;
-        border-radius: 40px;
+        border-radius: 70px;
         text-align: center;
-        font-family: 'Tenor Sans', serif;
+        font-family: 'Inter', serif;
+        font-weight: 300;
     }
 
     span {
-        font-family: 'Teachers', serif;
+        font-family: 'Roboto', serif;
+        font-weight: 700;
+        font-size: 1em;
     }
 
   </style>

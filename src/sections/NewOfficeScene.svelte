@@ -17,15 +17,15 @@
                 <div class="cierra">
                     <h2>Cierra</h2>
                     <div class="text">
-                        <h3><span>1.</span> Took out significant student loans throughout college</h3>
-                        <h3><span>2.</span> Will not receive any financial help from her family— including for a down payment</h3>
+                        <h3><span>1.</span> Took out <span>significant student loans</span> throughout college</h3>
+                        <h3><span>2.</span> <span>Will not receive any financial help</span> from her family— including for a down payment</h3>
                     </div>
                 </div>
                 <div class="laura">
                     <h2>Laura</h2>
                     <div class="text">
-                        <h3><span>1.</span> Took out a few student loans, but was able to repay them by graduation</h3>
-                        <h3><span>2.</span> Her parents are gifting her a down payment to help with her first home</h3>
+                        <h3><span>1.</span> Took out a <span>few student loans,</span> but was able to repay them by graduation</h3>
+                        <h3><span>2.</span> Her parents are <span>gifting her a down payment</span> to help with her first home</h3>
                     </div>
                 </div>
             </div>
@@ -47,8 +47,12 @@
                     </div>
                 </div>
                 <div class="scroll-text-cierra">
-                    <p>While Cierra’s <span>credit score is decent,</span> it falls just <span>below the threshold </span> for most conventional mortgage approvals— especially with her high student debt and lack of savings.
-
+                    <p>
+                        While Cierra’s <span>credit score is decent,</span> it falls just 
+                        <span>below the threshold </span> for most conventional mortgage 
+                        approvals— especially with her high student debt and lack of savings.
+                        <br><br> She’s eligible for only a limited number of loan options—usually 
+                        with higher interest rates.
                     </p>
                 </div>
             </div>
@@ -59,8 +63,11 @@
                     </div>
                 </div>
                 <div class="scroll-text-laura">
-                    <p>Laura’s <span>credit score is excellent </span> due to her low debt, strong financial supports and timely repayments. </p>
-                    <p> She’s eligible for the best mortgage rates and <span>will be quickly be pre-approved.</span></p>
+                    <p>
+                        Laura’s <span>credit score is excellent </span> due to her low debt, 
+                        strong financial supports and timely repayments.<br><br> She’s eligible 
+                        for the best mortgage rates and <span>will be quickly be pre-approved.</span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -102,8 +109,7 @@
   </div>
   
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap");
-    @import url("https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap");
     @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
     @import url("https://fonts.googleapis.com/css2?family=Teachers:wght@700&display=swap");
     @import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@700&display=swap");
@@ -133,8 +139,6 @@
     .text {
         display: flex;
         flex-direction: column;
-        font-family: 'Tenor Sans', serif;
-        font-weight: 400;
         background-color: #D3EBF4;
         max-width: 360px;
         font-size: 1.8em;
@@ -146,9 +150,15 @@
         text-align: center;
     }
 
+    .text h3 {
+        font-family: 'Inter', serif;
+        font-weight: 300;
+    }
+
     span {
-        font-family: 'Teachers', sans-serif;
-        font-size: 1.2em;
+        font-family: 'Roboto', serif;
+        font-weight: 700;
+        font-size: 1em;
     }
 
     .office-content2 {
@@ -162,7 +172,8 @@
         background-color: #4583A2;
         border-radius: 50%;
         text-align: center;
-        font-family: 'Tenor Sans', serif;
+        font-family: 'Inter', serif;
+        font-weight: 300;
         max-width: 400px;
         padding: 100px;
         font-size: 2.2em;
@@ -203,10 +214,12 @@
     .scroll-text-cierra p, .scroll-text-laura p {
         color: black;
         font-family: 'Inter', serif;
-        font-size: 1.5em;
+        font-weight: 300;
+        font-size: 1.6em;
         max-width: 450px;
         justify-self: center;
         text-align: center;
+        padding: 30px 10px;
     }
 
     .credit-column {
@@ -227,11 +240,12 @@
     .office-content3 h3 {
         color: white;
         background-color: #4583A2;
-        border-radius: 60px;
+        border-radius: 90px;
         text-align: center;
-        font-family: 'Tenor Sans', serif;
+        font-family: 'Inter', serif;
+        font-weight: 300;
         max-width: 500px;
-        padding: 40px;
+        padding: 70px 60px;
         font-size: 2.2em;
         justify-self: center;
     }

@@ -2,7 +2,10 @@
     import Scroller from "../lib/Scroller.svelte";
     import cierra from "../images/cierra-standing2.png";
     import laura from "../images/laura-standing1.png";
-
+    import map from "../images/US-map.png";
+    import freeFromDebt from "../images/free-from-debt.png";
+    import homebuyer from "../images/getting-home.png";
+    import goodCredit from "../images/good-credit.png";
     
   </script>
   
@@ -23,30 +26,98 @@
                 <img src={laura} alt="White woman smiling and waving in a blue dress" class="laura"/>
             </div>
             <div class="scrolly2">
-                <h3>
-                    
+                <img src={map} alt="blank blue map of the United States" class="map"/>
+                <h3 class="map-text">
+                    It <span>reflects the systemic forces</span> that shape who 
+                    gets to build wealth in America, and who is left 
+                    behind <span>even when they work just as hard.</span>
+                </h3>
+            </div>
+            <div class="scrolly2">
+                <h3 class="after-map-text">
+                    But this story doesn’t have to end in inequality. 
+                    Let’s look at some current solutions and how we can begin 
+                    to close the racial wealth gap.
                 </h3>
             </div>
       {/snippet}
     </Scroller>
     <div class="scene3">
-        <div class="scrolls">
-            <div class="scrolly-text1">
-                
-            </div>
-            <div class="scrolly-text2">
-                
-            </div>
-        </div>
             <div class="sticky1">
-                
-                
+                <h1 class="scene-header">1. Student Loan Forgiveness</h1>
+                <img src={freeFromDebt} alt="guy cutting off the burden of chain of debt" class="debt-free"/>
+            </div>
+            <div class="scrolls">
+                <div class="scrolly-text1">
+                    <h2>What it Does</h2>
+                    <li>Improves credit scores</li>
+                    <li>Lowers debt-to-income ratios</li>
+                    <li>Helps millions with homeownership</li>
+                </div>
+                <div class="scrolly-text2">
+                    <h2>Importance</h2>
+                    <p>
+                        <span>Student loans were the starting point</span> that 
+                        widened the financial gap between Cierra and 
+                        Laura. Providing debt relief would ease that 
+                        burden on those who had to self-fund their education.
+                    </p>
+                </div>
             </div>
     </div>
     <div class="scene4">
-        
+        <div class="scrolls">
+            <div class="scrolly-text1">
+                <h2>What it Does</h2>
+                <li>Gives down payment support to individuals without family wealth</li>
+                <li>Allow more people to build</li>
+                <li>Allow more people to build their home equity</li>
+            </div>
+            <div class="scrolly-text2">
+                <h2>Importance</h2>
+                <p>
+                    <span>Family support gave Laura a head start into homeownership,</span> 
+                    while Cierra, without that help, remained a renter. <span>Expanding 
+                    down payment assistance programs</span> can help close this gap and expand access 
+                    to homeownership.
+                </p>
+            </div>
+        </div>
+        <div class="sticky1">
+            <h1 class="scene-header">2. First-Generation Homebuyer<br> Assistance</h1>
+            <img src={homebuyer} alt="guy cutting off the burden of chain of debt" class="debt-free"/>
+        </div>
+    </div>
+    <div class="scene5">
+        <div class="sticky1">
+            <h1 class="scene-header">3. Inclusive Credit<br> Scoring Reform</h1>
+            <img src={goodCredit} alt="guy cutting off the burden of chain of debt" class="debt-free"/>
+        </div>
+        <div class="scrolls">
+            <div class="scrolly-text1">
+                <h2>What it Does</h2>
+                <li>Updates credit models to include more expenses to 
+                    give a more fair picture of an individual’s creditworthiness
+                </li>
+            </div>
+            <div class="scrolly-text2">
+                <h2>Importance</h2>
+                <p>
+                    Cierra’s credit score was largely impacted by her <span>debt-to-income 
+                    ratio, which put her at a disadvantage</span> when applying for mortgages. 
+                    <span>Improving credit access</span> and <span>rethinking score calculations</span> could <span>level 
+                    the playing field for millions.</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="scene6">
         <h3>
-            
+            The racial wealth gap wasn’t created overnight and it won’t be solved overnight either. 
+            But by recognizing how factors like student debt, unequal family wealth, and credit barriers 
+            can significantly shape opportunity, <span>we can begin to build a more equitable future. </span><br><br>
+            Wealth shouldn’t depend on what you’re born with. <span>Wealth should be something everyone has the equal 
+            chance to build.
         </h3>
     </div>
   </div>
@@ -54,12 +125,12 @@
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap");
     @import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
-    @import url("https://fonts.googleapis.com/css2?family=Teachers:wght@700&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
     @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
     .background-wrapper {
         position: relative;
         top: 0;
-        height: 650vh;
+        height: 1605vh;
         z-index: 1;
         background-image: url("/bwdc-scrollytelling/skyline-scene.png");
         background-position: center;
@@ -86,27 +157,43 @@
 
     .scrolly2 {
         margin-top: 90vh;
-        align-self: center;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
     }
 
-    .scene3 {
+    .scene3, .scene4, .scene5 {
         margin-top: 90vh;
         text-align: center;
-        justify-content: space-between;
-        height: 240vh;
+        justify-content: center;
+        height: 260vh;
         display: flex;
         margin: 3%;
+        margin-top: 50vh;
+    }
+
+    .scene3-content {
+        display: flex;
+    }
+
+    .scene-header {
+        font-size: 2.5em;
+    }
+    
+    .scrolls {
+        margin: 0 auto;
     }
 
     .scrolly-text1 {
         align-self: center;
-        background-color: #63528a;
-        color: white;
+        background-color: rgba(255, 255, 255, 0.973);
+        color: black;
         font-family: 'Inter', serif;
-        padding: 40px;
+        font-weight: 300;
+        padding: 30px 40px 50px 40px;
         font-size: 1.6em;
-        border-radius: 80px;
-        max-width: 550px;
+        border-radius: 100px;
+        max-width: 450px;
         margin-top: 100vh;
         z-index: 10;
         position: relative;
@@ -114,20 +201,23 @@
 
     .scrolly-text2 {
         align-self: center;
-        background-color: #63528a;
-        color: white;
+        background-color: rgba(255, 255, 255, 0.973);
+        color: black;
         font-family: 'Inter', serif;
-        padding: 40px;
+        font-weight: 300;
+        padding: 40px 70px;
         font-size: 1.6em;
-        border-radius: 80px;
-        max-width: 550px;
-        margin-top: 30vh;
+        border-radius: 100px;
+        max-width: 380px;
+        margin-top: 50vh;
         z-index: 10;
         position: relative;
     }
 
     span {
-        font-family: 'Teachers', serif;
+        font-family: 'Roboto', serif;
+        font-weight: 500;
+        font-size: 1em;
     }
 
     .sticky1 {
@@ -139,6 +229,7 @@
         align-items: center;
         justify-content: center;
         z-index: 2;
+        margin: 0 auto;
     }
 
     .scene4 {
@@ -153,6 +244,54 @@
     .laura {
         height: 480px;
         width: 250px;
+    }
+
+    .map {
+        height: 500px;
+        width: 900px;
+        align-self: center;
+    }
+
+    .map-text {
+        font-family: 'Inter', serif;
+        font-weight: 300;
+        background-color: #4A6499;
+        color: white;
+        max-width: 760px;
+        font-size: 1.6em;
+        text-align: center;
+        padding: 30px;
+        border-radius: 60px;
+        align-self: center;
+        margin: 5%;
+    }
+
+    .after-map-text {
+        font-size: 2em;
+        padding: 70px 50px;
+        max-width: 500px;
+    }
+
+    h2 {
+        font-family: 'Inter', serif;
+        margin: 15px;
+    }
+
+    .debt-free {
+        background-color: #cfe4fcf6;
+        padding: 40px 20px;
+        border-radius: 40px;
+    }
+
+    .scene6 {
+        display: flex;
+        justify-content: center;
+        margin-top: 90vh;
+    }
+
+    .scene6 h3 {
+        max-width: 700px;
+        padding: 70px;
     }
 
   </style>

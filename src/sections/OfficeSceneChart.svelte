@@ -9,7 +9,7 @@
         chart: {
         type: 'line',
         height: 600,
-        width: 750,
+        width: 700,
         },
         title: {
         text: 'Total Income Over the Span of 5 Years'
@@ -56,17 +56,19 @@
         {/snippet}
   
         {#snippet scrolly()}
-        <div class="chart-explanation-1">
-            <h3>
-                What started as only <span>$12,000</span>, 
-                quickly turned into a wealth gap of <span>$60,000.</span>
-            </h3>
-        </div>
-        <div class="chart-explanation-2">
-            <h3>
-                 Laura and Cierra's story isn't unique. Across the entire country, racial income gaps persist 
-                 and are much more common than we think.
-            </h3>
+        <div class="chart-text">
+            <div class="chart-explanation-1">
+                <h3>
+                    What started as only <span>$12,000</span>, 
+                    quickly turned into a wealth gap of <span>$60,000.</span>
+                </h3>
+            </div>
+            <div class="chart-explanation-2">
+                <h3>
+                    Laura and Cierra's story isn't unique. <span>Across the entire country, racial income gaps persist</span> 
+                    and are much more common than we think.
+                </h3>
+            </div>
         </div>
         {/snippet}
       </Scroller>
@@ -83,15 +85,21 @@
       background-image: url("/bwdc-scrollytelling/office-scene.png");
       background-position: center;
       background-attachment: fixed;
-      height: 350vh;
+      height: 400vh;
       display: flex;
+      justify-content: center;
     }
 
     .sticky-content-1 {
-        height: 100vh;
+        height: 150vh;
         position: sticky;
         top: 0;
         align-content: center;
+        margin: 0 auto;
+    }
+
+    .chart-text {
+        margin: 0 auto;
     }
 
     .chart-explanation-1 {
@@ -106,7 +114,7 @@
     .chart-explanation-2 {
         display: flex;
         justify-content: center;
-        margin-top: 50vh;
+        margin-top: 90vh;
         width: 100%;
         padding: 0 2rem;
 
@@ -116,16 +124,19 @@
     .chart-explanation-1 h3, .chart-explanation-2 h3 {
         color: white;
         background-color: #1C1C6E;
-        padding: 40px 30px;
-        max-width: 500px;
-        font-size: 1.7em;
-        border-radius: 40px;
+        padding: 60px 30px;
+        max-width: 390px;
+        font-size: 1.8em;
+        border-radius: 70px;
         text-align: center;
         font-family: 'Inter', serif;
+        font-weight: 300;
     }
 
     span {
-        font-family: 'Teachers';
+        font-family: 'Roboto', serif;
+        font-weight: 700;
+        font-size: 1em;
     }
 
   </style>

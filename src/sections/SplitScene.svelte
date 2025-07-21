@@ -56,7 +56,7 @@
                 </div>
             </div>
             <div class="scroll-text-cierra">
-                <p>Cierra graduated with over $30,000 in student loans and no financial help from family.</p>
+                <p>Cierra graduated with <span>over $30,000 in student loans and no financial help from family.</span></p>
                 <p>She had to begin repaying her loans immediately after graduation.</p>
                 <p>This financial pressure shaped her job choices.</p>
             </div>
@@ -82,7 +82,7 @@
                 </div>
             </div>
             <div class="scroll-text-laura">
-                <p>Laura graduated debt-free with help from her family.</p>
+                <p>Laura graduated <span>debt-free with help from her family.</span></p>
                 <p>She had more freedom to explore job opportunities.</p>
                 <p>She could afford to take lower-paying internships.</p>
             </div>
@@ -91,8 +91,9 @@
   
   <style>
     @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&display=swap");
-    @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
     @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
     .background-wrapper {
       position: relative;
       top: 0;
@@ -126,7 +127,6 @@
     .scrolly-content-1 {
         margin-top: 30vh;
         color: white;
-        font-family: 'Inter', serif;
         text-align: center;
         background-color: #734059;
         font-size: 1.7em;
@@ -134,6 +134,13 @@
         max-width: 450px;
         padding: 20px 40px;
         position: relative;
+        font-family: 'Inter', serif;
+        font-weight: 500;
+    }
+
+    .scrolly-content-1 h3 {
+        font-family: 'Inter', serif;
+        font-weight: 500;
     }
 
     .cierra {
@@ -177,6 +184,7 @@
     .scroll-text-cierra p, .scroll-text-laura p {
         color: black;
         font-family: 'Inter', serif;
+        font-weight: 300;
         font-size: 1.5em;
         max-width: 400px;
         justify-self: center;
@@ -187,7 +195,11 @@
         flex-direction: column;
     }
 
-    
+    span {
+        font-family: 'Roboto', serif;
+        font-weight: 700;
+        font-size: 1em;
+    }
 
   </style>
   

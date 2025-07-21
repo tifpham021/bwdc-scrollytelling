@@ -54,8 +54,8 @@
         {#snippet scrolly()}
             <div class="scrolly1">
                 <h3>
-                    To understand how renting affected Cierra’s 
-                    financial picture, let’s look at the details 
+                    To understand how renting affected Cierra's 
+                    financial picture, let's look at the details 
                     of her rent payments year by year.
                 </h3>
                 
@@ -66,12 +66,12 @@
         <div class="scrolls">
             <div class="scrolly-text1">
                 <p>
-                    When Cierra begand renting, her annual rent 
-                    was $18,000 ($1500 per month). 
+                    When Cierra <span>began renting,</span> her annual rent 
+                    was <span>$18,000 ($1500 per month). </span>
                 </p>
                 <p>
-                    Each year after that, the rent steadily increased—  
-                    adding up quickly with no equity gained in return..
+                    Each year after that, the <span>rent steadily increased— </span> 
+                    adding up quickly with <span>no equity gained in return.</span>
                 </p>
             </div>
             <div class="scrolly-text2">
@@ -92,11 +92,11 @@
         <h2 class="summary-header">To Summarize...</h2>
         <div class="summary-content">
             <div class="summary-cierra">
-                <img src={apartment} />
+                <img src={apartment} alt="4 story red apartment"/>
                 <h3>In contrast, Cierra <span>paid $127,368 in rent</span> during the same period, with nothing to show for it—no ownership, no equity, and no lasting financial benefit.</h3>
             </div>
             <div class="summary-laura"> 
-                <img src={house} />
+                <img src={house} alt="2 story pink house"/>
                 <h3>Over five years, Laura <span>built nearly $110,000 in home equity</span>—turning her monthly payments into long-term wealth.</h3>
             </div>
         </div>
@@ -122,7 +122,7 @@
     h3 {
         font-family: 'Inter', serif;
         font-weight: 300;
-        background-color: #493a6d;
+        background-color: #4A6499;
         color: white;
         max-width: 650px;
         font-size: 2em;
@@ -153,9 +153,10 @@
 
     .scrolly-text1 {
         align-self: center;
-        background-color: #63528a;
+        background-color: #2f4776;
         color: white;
         font-family: 'Inter', serif;
+        font-weight: 300;
         padding: 40px;
         font-size: 1.6em;
         border-radius: 80px;
@@ -167,9 +168,10 @@
 
     .scrolly-text2 {
         align-self: center;
-        background-color: #63528a;
+        background-color: #2f4776;
         color: white;
         font-family: 'Inter', serif;
+        font-weight: 300;
         padding: 40px;
         font-size: 1.6em;
         border-radius: 80px;
@@ -180,7 +182,9 @@
     }
 
     span {
-        font-family: 'Teachers', serif;
+        font-family: 'Roboto', serif;
+        font-weight: 700;
+        font-size: 1em;
     }
 
 
@@ -205,8 +209,9 @@
         border: none;
         padding: 30px;
         border-radius: 40px;
-        font-family: 'Teachers', serif;
-        font-size: 1.4em;
+        font-family: 'Roboto', serif;
+        font-weight: 700;
+        font-size: 1.5em;
         box-shadow: 1px 3px 2px rgb(66, 107, 141);
         margin: 20px;
         color: white;
@@ -250,7 +255,11 @@
         display: block;
         margin: 0 auto;
         max-width: 100%; 
-        height: 60%;
+        height: 55%;
+    }
+
+    .summary-laura img {
+        height: 50%;
     }
 
     .summary-laura {
@@ -260,7 +269,7 @@
 
 
     .summary-cierra h3 {
-        font-size: 1.4em;
+        font-size: 1.5em;
         max-width: 450px;
         text-align: center;
         padding: 50px;
@@ -271,7 +280,8 @@
         max-width: 400px;
         text-align: center;
         justify-self: center;
-        padding: 60px;
+        padding: 50px;
+        margin-top: 55px;
     }
 
   </style>

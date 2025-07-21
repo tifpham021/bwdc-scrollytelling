@@ -47,12 +47,13 @@
 
     h3 {
         font-family: 'Inter', serif;
+        font-weight: 500;
         background-color: #FCEFAF;
         max-width: 420px;
-        font-size: 2.6em;
+        font-size: 2.4em;
         text-align: center;
         padding: 30px 35px;
-        border-radius: 40px;
+        border-radius: 70px;
         display: flex;
         align-self: center;
         color: black;

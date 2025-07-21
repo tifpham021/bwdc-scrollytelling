@@ -14,8 +14,8 @@
                 <h3>
                     By the time Cierra and Laura neared 30 
                     and were applying for mortgages to buy their 
-                    first homes, the consequences of earlier financial 
-                    decisions had already begun to limit one of their options.
+                    first homes, the <span>consequences of earlier financial 
+                    decisions had already begun to limit one of their options.</span>
                 </h3>
             </div>
         {/snippet}
@@ -37,18 +37,23 @@
     }
 
     h3 {
-        font-family: 'Tenor Sans', serif;
-        font-weight: 400;
+        font-family: 'Inter', serif;
+        text-align: center;
+        font-weight: 300;
         background-color: #35647b;
         max-width: 620px;
-        font-size: 2.2em;
-        text-align: center;
-        padding: 50px 65px;
+        font-size: 2.1em;
+        padding: 70px 65px;
         border-radius: 120px;
-        display: flex;
         align-self: center;
         color: white;
         justify-self: center;
+    }
+
+    span {
+        font-family: 'Roboto', serif;
+        font-weight: 700;
+        font-size: 1em;
     }
   </style>
   

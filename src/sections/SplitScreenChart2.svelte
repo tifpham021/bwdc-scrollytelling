@@ -67,15 +67,15 @@
         {#snippet scrolly()}
         <div class="chart-explanation-1">
             <h3>
-                Additionally, White individuals are more likely than Black 
-                individuals to receive family financial support for education—leaving 
+                Additionally, <span>White individuals are more likely than Black 
+                individuals to receive family financial support for education</span>—leaving 
                 many Black students, like Cierra, with no choice but to take out student loans.
             </h3>
         </div>
         <div class="chart-explanation-2">
             <h3>
-                None of this is coincidental—it reflects deep-rooted inequalities. 
-                It shows how generational wealth and acccess significantly affects who 
+                None of this is coincidental—it <span> deep-rooted inequalities. </span>
+                It shows how generational wealth and access significantly affects who 
                 takes on debt, shaping careers and futures alike.
             </h3>
         </div>
@@ -125,9 +125,16 @@
         padding: 40px 30px;
         max-width: 500px;
         font-size: 1.7em;
-        border-radius: 40px;
+        border-radius: 70px;
         text-align: center;
         font-family: 'Inter', serif;
+        font-weight: 300;
+    }
+
+    span {
+        font-family: 'Roboto', serif;
+        font-weight: 700;
+        font-size: 1em;
     }
 
   </style>

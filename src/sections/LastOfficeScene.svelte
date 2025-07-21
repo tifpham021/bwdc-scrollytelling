@@ -90,7 +90,7 @@
                 Given the earlier data showing that <span>Black individuals earn less income and carry higher 
                 student debt than White individuals,</span> these financial disparities likely contribute to the 
                 <span>significantly lower mortgage approval rates and higher denial rates</span> seen among Black applicants. 
-                Access to homeownership is deeply tied to financial standing — and these systemic inequalities create real barriers.
+                Access to homeownership is deeply tied to financial standing — and <span>these systemic inequalities create real barriers.</span>
             </h3>
         </div>
     </div>
@@ -172,17 +172,19 @@
     .chart-explanation-1 h3, .chart-explanation-2 h3, .chart-explanation-3 h3 {
         color: white;
         background-color: #1C1C6E;
-        padding: 40px 30px;
+        padding: 60px 30px;
         max-width: 400px;
         font-size: 1.7em;
-        border-radius: 40px;
+        border-radius: 70px;
         text-align: center;
         font-family: 'Inter', serif;
         font-weight: 300;
     }
 
     span {
-        font-family: 'Teachers';
+        font-family: 'Roboto', serif;
+        font-weight: 700;
+        font-size: 1em;
     }
 
   </style>

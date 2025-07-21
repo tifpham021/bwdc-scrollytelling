@@ -71,12 +71,13 @@
 
     h3 {
         font-family: 'Inter', serif;
+        font-weight: 500;
         background-color: #4175A9;
         max-width: 300px;
-        font-size: 2.4em;
+        font-size: 2.2em;
         text-align: center;
         padding: 40px 25px;
-        border-radius: 40px;
+        border-radius: 70px;
         display: flex;
         align-self: center;
         color: white;

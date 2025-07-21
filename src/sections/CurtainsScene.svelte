@@ -34,8 +34,8 @@
     }
 
     h3 {
-        font-family: 'Tenor Sans', serif;
-        font-weight: 400;
+        font-family: 'Inter', serif;
+        font-weight: 300;
         background-color: #652946;
         max-width: 620px;
         font-size: 2.2em;
