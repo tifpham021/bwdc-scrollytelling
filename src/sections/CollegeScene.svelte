@@ -1,7 +1,25 @@
 <script>
     import Scroller from "../lib/Scroller.svelte";
-    import ArticleText from "../lib/ArticleText.svelte";
-    
+    import { fade } from 'svelte/transition';
+
+    let visible = false;
+
+    function inView(node) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        visible = entry.isIntersecting;
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(node);
+
+    return {
+      destroy() {
+        observer.unobserve(node);
+      }
+    };
+  }
   </script>
   
   <div class="background-wrapper">
@@ -10,7 +28,7 @@
       {/snippet}
   
       {#snippet scrolly()}
-        <h3>They both majored in Finance at the University of Georgia.</h3>
+        <h3 use:inView transition:fade="{{ duration: 300 }}" class:invisible={!visible}>They both majored in Finance at the University of Georgia.</h3>
       {/snippet}
     </Scroller>
   </div>
@@ -39,6 +57,11 @@
         border-radius: 70px;
         display: flex;
         align-self: center;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .invisible {
+      opacity: 0;
     }
   
   </style>

@@ -4,6 +4,27 @@
     
     import Chart from '@highcharts/svelte';
     import Highcharts from 'highcharts';
+    import { fade } from 'svelte/transition';
+    let visible1 = false;
+    let visible2 = false;
+    let visible3 = false;
+
+    function inView(node, callback) {
+        const observer = new IntersectionObserver(
+        ([entry]) => {
+            callback(entry.isIntersecting);
+        },
+        { threshold: 0.5 }
+        );
+
+        observer.observe(node);
+
+        return {
+        destroy() {
+            observer.unobserve(node);
+        }
+        };
+    }
 
     let educationDebt = {
         chart: {
@@ -99,19 +120,28 @@
     <div class="background-wrapper">
       <Scroller layout="right">
         {#snippet sticky()}
-        <div class="sticky-content-1">
+        <div class="sticky-content-1" 
+            use:inView={(val) => (visible1 = val)}
+            transition:fade
+            class:invisible={!visible1}>
             <Chart {Highcharts} options={educationDebt} />
         </div>
         {/snippet}
   
         {#snippet scrolly()}
-        <div class="chart-explanation-1">
+        <div class="chart-explanation-1" 
+        use:inView={(val) => (visible2 = val)}
+        transition:fade
+        class:invisible={!visible2}>
             <h3>
                 What happened to Cierra and Laura plays out at a much bigger scale. Let's take a 
                 moment to explore the data on the left.
             </h3>
         </div>
-        <div class="chart-explanation-2">
+        <div class="chart-explanation-2"
+        use:inView={(val) => (visible3 = val)}
+        transition:fade
+        class:invisible={!visible3}>
             <h3>
                 Over more than two decades, data shows that <span>Black households 
                 consistently carried higher student loan debt compared to White 
@@ -138,10 +168,11 @@
     }
 
     .sticky-content-1 {
-        height: 50vh;
+        height: 100vh;
         position: sticky;
         top: 0;
         align-content: center;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .chart-explanation-1, .chart-explanation-2 {
@@ -150,7 +181,11 @@
         margin-top: 100vh;
         width: 100%;
         padding: 0 4rem;
+        transition: opacity 0.5s ease-in-out;
+    }
 
+    .invisible {
+      opacity: 0;
     }
 
     .chart-explanation-2 {

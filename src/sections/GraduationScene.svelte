@@ -3,6 +3,26 @@
     import ArticleText from "../lib/ArticleText.svelte";
     import cierraGrad from "../images/cierra-grad.png";
     import lauraGrad from "../images/laura-grad.png";
+    import { fade } from 'svelte/transition';
+
+    let visible = false;
+
+    function inView(node) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        visible = entry.isIntersecting;
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(node);
+
+    return {
+      destroy() {
+        observer.unobserve(node);
+      }
+    };
+  }
   </script>
   
   <div class="background-wrapper">
@@ -20,7 +40,7 @@
     
         {#snippet scrolly()}
         <div class="scrolly">
-            <h3>Both women graduated college in 2019 with their Bachelor's in Finance.</h3>
+            <h3 use:inView transition:fade="{{ duration: 300 }}" class:invisible={!visible}>Both women graduated college in 2019 with their Bachelor's in Finance.</h3>
         </div>
         {/snippet}
         </Scroller>
@@ -82,6 +102,11 @@
         align-self: center;
         color: white;
         justify-self: center;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .invisible {
+      opacity: 0;
     }
 
     .grad-icons {

@@ -7,6 +7,28 @@
     import Chart from '@highcharts/svelte';
     import Highcharts from 'highcharts';
 
+    import { fade } from 'svelte/transition';
+    let visible1 = false;
+    let visible2 = false;
+    let visible3 = false;
+
+    function inView(node, callback) {
+        const observer = new IntersectionObserver(
+        ([entry]) => {
+            callback(entry.isIntersecting);
+        },
+        { threshold: 0.5 }
+        );
+
+        observer.observe(node);
+
+        return {
+        destroy() {
+            observer.unobserve(node);
+        }
+        };
+    }
+
     let moneyHelp = {
     chart: {
         type: 'column',
@@ -59,20 +81,29 @@
     <div class="background-wrapper">
       <Scroller layout="left">
         {#snippet sticky()}
-        <div class="sticky-content-1">
+        <div class="sticky-content-1"
+        use:inView={(val) => (visible1 = val)}
+        transition:fade
+        class:invisible={!visible1}>
             <Chart {Highcharts} options={moneyHelp} />
         </div>
         {/snippet}
   
         {#snippet scrolly()}
-        <div class="chart-explanation-1">
+        <div class="chart-explanation-1"
+        use:inView={(val) => (visible2 = val)}
+        transition:fade
+        class:invisible={!visible2}>
             <h3>
                 Additionally, <span>White individuals are more likely than Black 
                 individuals to receive family financial support for education</span>—leaving 
                 many Black students, like Cierra, with no choice but to take out student loans.
             </h3>
         </div>
-        <div class="chart-explanation-2">
+        <div class="chart-explanation-2"
+        use:inView={(val) => (visible3 = val)}
+        transition:fade
+        class:invisible={!visible3}>
             <h3>
                 None of this is coincidental—it <span> deep-rooted inequalities. </span>
                 It shows how generational wealth and access significantly affects who 
@@ -103,6 +134,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .chart-explanation-1 {
@@ -110,6 +142,7 @@
         justify-content: center;
         margin-top: 100vh;
         width: 100%;
+        transition: opacity 0.5s ease-in-out;
 
     }
 
@@ -117,6 +150,7 @@
         display: flex;
         justify-content: center;
         width: 100%;
+        transition: opacity 0.5s ease-in-out;
     }
     
     .chart-explanation-1 h3, .chart-explanation-2 h3 {
@@ -135,6 +169,10 @@
         font-family: 'Roboto', serif;
         font-weight: 700;
         font-size: 1em;
+    }
+
+    .invisible {
+      opacity: 0;
     }
 
   </style>

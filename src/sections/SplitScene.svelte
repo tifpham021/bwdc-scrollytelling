@@ -3,59 +3,44 @@
     import ArticleText from "../lib/ArticleText.svelte";
     import debt from "../images/debt.png";
     import debtFree from "../images/debt-free.png";
-    
-    import Chart from '@highcharts/svelte';
-    import Highcharts from 'highcharts';
 
-    let chartOptions = {
-        chart: {
-        type: 'line'
+    import { fade } from 'svelte/transition';
+
+    let visible1 = false;
+    let visible2 = false;
+    let visible3 = false;
+
+    function inView(node, callback) {
+        const observer = new IntersectionObserver(
+        ([entry]) => {
+            callback(entry.isIntersecting);
         },
-        title: {
-        text: 'Education Debt By Race/Ethnicity'
-        },
-        subtitle: {
-        text: 'Source: <a href="https://blackwealthdata.org/explore/assets" target="_blank">blackwealthdata.org</a>'
-        },
-        xAxis: {
-        categories: ['2007', '2010', '2013', '2016', '2019', '2022']
-        },
-        yAxis: {
-        title: {
-            text: 'Percent of Households Holding Education Debt'
+        { threshold: 0.5 }
+        );
+
+        observer.observe(node);
+
+        return {
+        destroy() {
+            observer.unobserve(node);
         }
-        },
-        plotOptions: {
-        line: {
-            dataLabels: {
-            enabled: true
-            },
-            enableMouseTracking: true
-        }
-        },
-        series: [
-            {
-                name: 'Black',
-                data: [22.5, 24.1, 31.2, 30.7, 30.2, 35.9],
-                color: '#734059'
-            },
-            {
-                name: 'White',
-                data: [13.8, 18.9, 18.4, 20.2, 20.0, 19.8],
-                color: '#8DA7BE'
-            }
-        ],
-    };
+        };
+    }
   </script>
     <div class="background-wrapper">
         <div class="person-column">
-            <div class="sticky-content">
+            <div class="sticky-content" use:inView={(val) => (visible1 = val)}
+                transition:fade
+                class:invisible={!visible1}>
                 <div class="cierra">
                     <h2>Cierra</h2>
                     <img src={debt} alt="shows that person is running out of time to pay their debts with an hourglass and a chart"/>
                 </div>
             </div>
-            <div class="scroll-text-cierra">
+            <div class="scroll-text-cierra" 
+                use:inView={(val) => (visible3 = val)}
+                transition:fade
+                class:invisible={!visible3}>
                 <p>Cierra graduated with <span>over $30,000 in student loans and no financial help from family.</span></p>
                 <p>She had to begin repaying her loans immediately after graduation.</p>
                 <p>This financial pressure shaped her job choices.</p>
@@ -66,7 +51,10 @@
         {/snippet}
   
         {#snippet scrolly()}
-        <div class="scrolly-content-1">
+        <div class="scrolly-content-1" 
+            use:inView={(val) => (visible2 = val)}
+            transition:fade
+            class:invisible={!visible2}>
             <h3>
                 From now on, their journeys will look entirely different— shaped not by effort 
                 or ambition, but by systems they never controlled.
@@ -75,13 +63,18 @@
         {/snippet}
       </Scroller>
         <div class="person-column">
-            <div class="sticky-content">
+            <div class="sticky-content" use:inView={(val) => (visible1 = val)}
+                transition:fade
+                class:invisible={!visible1}>
                 <div class="laura">
                     <h2>Laura</h2>
                     <img src={debtFree} alt="shows that person debt free"/>
                 </div>
             </div>
-            <div class="scroll-text-laura">
+            <div class="scroll-text-laura"
+                use:inView={(val) => (visible3 = val)}
+                transition:fade
+                class:invisible={!visible3}>
                 <p>Laura graduated <span>debt-free with help from her family.</span></p>
                 <p>She had more freedom to explore job opportunities.</p>
                 <p>She could afford to take lower-paying internships.</p>
@@ -115,6 +108,7 @@
         align-items: center;
         justify-content: center;
         z-index: 2;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .sticky-content h2 {
@@ -136,6 +130,7 @@
         position: relative;
         font-family: 'Inter', serif;
         font-weight: 500;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .scrolly-content-1 h3 {
@@ -152,6 +147,7 @@
 
     .scroll-text-cierra {
         transform: translateX(20%);
+        transition: opacity 0.5s ease-in-out;
     }
 
     .cierra img, .laura img {
@@ -165,6 +161,7 @@
 
     .scroll-text-laura {
         transform: translateX(-18%);
+        transition: opacity 0.5s ease-in-out;
     }
 
     .laura img {
@@ -199,6 +196,10 @@
         font-family: 'Roboto', serif;
         font-weight: 700;
         font-size: 1em;
+    }
+
+    .invisible {
+      opacity: 0;
     }
 
   </style>

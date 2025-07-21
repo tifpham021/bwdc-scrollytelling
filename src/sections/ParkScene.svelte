@@ -8,6 +8,28 @@
   import laura1 from "../images/laura1.png";
   import cierraStanding from "../images/cierra-standing1.png";
   import lauraStanding from "../images/laura-standing1.png";
+  import { fade } from 'svelte/transition';
+
+  let visible1 = false;
+  let visible2 = false;
+  let visible3 = false;
+
+  function inView(node, callback) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        callback(entry.isIntersecting);
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(node);
+
+    return {
+      destroy() {
+        observer.unobserve(node);
+      }
+    };
+}
 </script>
 
 <div class="park-scene">
@@ -16,7 +38,10 @@
       {#snippet sticky()}{/snippet}
 
       {#snippet scrolly()}
-        <div class="park-content">
+        <div class="park-content"
+        use:inView={(val) => (visible1 = val)}
+        transition:fade
+        class:invisible={!visible1}>
           <img src={tree1} alt="tree" class="tree" />
           <div class="center">
             <h1>Here's Who Our Story Will Follow Today</h1>
@@ -25,7 +50,10 @@
           <img src={tree2} alt="tree" class="tree" />
         </div>
 
-        <div class="character-intro">
+        <div class="character-intro" 
+          use:inView={(val) => (visible2 = val)}
+          transition:fade
+          class:invisible={!visible2}>
           <div class="cierra">
             <img src={cierra1} alt="icon of cierra" class="cierra-img" />
             <h2>This is Cierra</h2>
@@ -36,7 +64,10 @@
           </div>
         </div>
 
-        <div class="characters-standing">
+        <div class="characters-standing" 
+          use:inView={(val) => (visible3 = val)}
+          transition:fade
+          class:invisible={!visible3}>
           <div class="cierra-standing">
             <img
               src={cierraStanding}
@@ -74,6 +105,7 @@
   .park-content {
     display: flex;
     justify-content: center;
+    transition: opacity 0.5s ease-in-out;
   }
 
   .park-content h1 {
@@ -103,7 +135,8 @@
     display: flex;
     justify-content: center;
     gap: 13rem;
-    margin-top: 30vh;
+    margin-top: 90vh;
+    transition: opacity 0.5s ease-in-out;
   }
 
   .cierra-img {
@@ -135,8 +168,9 @@
 
   .characters-standing {
     display: flex;
-    margin-top: 40vh;
+    margin-top: 90vh;
     justify-content: center;
+    transition: opacity 0.5s ease-in-out;
   }
 
   .characters-standing h2 {
@@ -144,4 +178,8 @@
     color: white;
     font-size: 2.4em;
   }
+
+  .invisible {
+      opacity: 0;
+    }
 </style>

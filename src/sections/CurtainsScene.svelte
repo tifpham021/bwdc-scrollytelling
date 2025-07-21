@@ -1,6 +1,25 @@
 <script>
     import Scroller from "../lib/Scroller.svelte";
+    import { fade } from 'svelte/transition';
 
+    let visible = false;
+
+    function inView(node) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        visible = entry.isIntersecting;
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(node);
+
+    return {
+      destroy() {
+        observer.unobserve(node);
+      }
+    };
+  }
   </script>
   
   <div class="background-wrapper">
@@ -11,7 +30,7 @@
     
         {#snippet scrolly()}
             <div class="curtains-content">
-                <h3>At this point, Cierra and Laura's paths may look identical from the outside— but financially, 
+                <h3 use:inView transition:fade="{{ duration: 300 }}" class:invisible={!visible}>At this point, Cierra and Laura's paths may look identical from the outside— but financially, 
                     their realities are already worlds apart.
                 </h3>
             </div>
@@ -46,6 +65,11 @@
         align-self: center;
         color: white;
         justify-self: center;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .invisible {
+      opacity: 0;
     }
   </style>
   

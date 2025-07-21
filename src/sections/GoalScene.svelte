@@ -5,7 +5,27 @@
     import rightHouse from "../images/rightHouse.png";
     import leftSign from "../images/leftSign.png";
     import rightSign from "../images/rightSign.png";
+    import { fade } from 'svelte/transition';
 
+    let visible1 = false;
+    let visible2 = false;
+
+    function inView(node, callback) {
+        const observer = new IntersectionObserver(
+        ([entry]) => {
+            callback(entry.isIntersecting);
+        },
+        { threshold: 0.5 }
+        );
+
+        observer.observe(node);
+
+        return {
+        destroy() {
+            observer.unobserve(node);
+        }
+        };
+    }
   </script>
   
   <div class="background-wrapper">
@@ -16,8 +36,13 @@
     
         {#snippet scrolly()}
             <div class="goal-content">
-                <h3>They both have the goal of owning a house by 30.</h3>
-                <div class="houses">
+                <h3 use:inView={(val) => (visible1 = val)}
+                    transition:fade
+                    class:invisible={!visible1}>They both have the goal of owning a house by 30.</h3>
+                <div class="houses"
+                    use:inView={(val) => (visible2 = val)}
+                    transition:fade
+                    class:invisible={!visible2}>
                     <div class="left">
                         <img src={leftHouse} alt="two story pink house"/>
                         <img src={leftSign} alt="purple sold sign" class="leftSign"/>
@@ -58,12 +83,18 @@
         align-self: center;
         color: black;
         justify-self: center;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .houses {
         display: flex;
         justify-content: center;
         gap: 10%;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .invisible {
+      opacity: 0;
     }
 
     .left, .right {
