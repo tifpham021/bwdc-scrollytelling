@@ -13,6 +13,7 @@
     let visible4 = false;
     let visible5 = false;
     let visible6 = false;
+    let showAmount = false;
 
     function inView(node, callback) {
     const observer = new IntersectionObserver(
@@ -64,7 +65,8 @@
             </div>
                 <h4 use:inView={(val) => (visible4 = val)}
                     transition:fade
-                    class:invisible={!visible4} class="laura-salary">Laura's annual salary was <span class="amount">$72,000.</span></h4>
+                    class:invisible={!visible4} class="laura-salary">Laura's annual salary was <span class="amount">$72,000.</span>
+                </h4>
         </div>
         <div class="scene4" use:inView={(val) => (visible5 = val)}
             transition:fade
@@ -177,5 +179,8 @@
         height: 400px;
     }
 
+    .cierra-salary {
+        margin-top: 3%;
+    }
   </style>
   
