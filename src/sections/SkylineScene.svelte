@@ -40,6 +40,49 @@
         }
         };
     }
+
+    let featuresScene3 = [
+        'Improves credit scores',
+        'Lowers debt-to-income ratios',
+        'Helps millions with homeownership'
+    ];
+
+    
+    let visibleCount = 1;
+
+    function showMore() {
+        if (visibleCount < featuresScene3.length) {
+        visibleCount += 1;
+        }
+    }
+
+    let featuresScene4 = [
+        'Gives down payment support to individuals without family wealth',
+        'Allow more people to build',
+        'Allow more people to build their home equity'
+    ];
+
+    let visibleCount1 = 1;
+
+    function showMore1() {
+        if (visibleCount1 < featuresScene4.length) {
+        visibleCount1 += 1;
+        }
+    }
+
+    let featuresScene5 = [
+    "Updates credit models to include more expenses",
+    "Incorporates alternative data like rent and utility payments",
+    "Improves access to credit for underserved communities"
+  ];
+
+  let visibleCount2 = 1;
+
+    function showMore2() {
+        if (visibleCount2 < featuresScene5.length) {
+        visibleCount2 += 1;
+        }
+    }
   </script>
   
   <div class="background-wrapper">
@@ -95,9 +138,15 @@
                     transition:fade
                     class:invisible={!visible6}>
                     <h2>What it Does</h2>
-                    <li>Improves credit scores</li>
-                    <li>Lowers debt-to-income ratios</li>
-                    <li>Helps millions with homeownership</li>
+                    <ul>
+                        {#each featuresScene3.slice(0, visibleCount) as feature}
+                          <li>{feature}</li>
+                        {/each}
+                      </ul>
+                      {#if visibleCount < featuresScene3.length}
+                        <button on:click={showMore}>Show More</button>
+                      {/if}
+                        
                 </div>
                 <div class="scrolly-text2" use:inView={(val) => (visible7 = val)}
                     transition:fade
@@ -118,9 +167,14 @@
                 transition:fade
                 class:invisible={!visible8}>
                 <h2>What it Does</h2>
-                <li>Gives down payment support to individuals without family wealth</li>
-                <li>Allow more people to build</li>
-                <li>Allow more people to build their home equity</li>
+                <ul>
+                    {#each featuresScene4.slice(0, visibleCount1) as feature}
+                      <li>{feature}</li>
+                    {/each}
+                  </ul>
+                  {#if visibleCount1 < featuresScene4.length}
+                    <button on:click={showMore1}>Show More</button>
+                  {/if}
             </div>
             <div class="scrolly-text2" use:inView={(val) => (visible9 = val)}
                 transition:fade
@@ -153,9 +207,14 @@
                 transition:fade
                 class:invisible={!visible12}>
                 <h2>What it Does</h2>
-                <li>Updates credit models to include more expenses to 
-                    give a more fair picture of an individual’s creditworthiness
-                </li>
+                <ul>
+                    {#each featuresScene5.slice(0, visibleCount2) as feature}
+                      <li>{feature}</li>
+                    {/each}
+                  </ul>
+                  {#if visibleCount2 < featuresScene5.length}
+                    <button on:click={showMore2}>Show More</button>
+                  {/if}
             </div>
             <div class="scrolly-text2" use:inView={(val) => (visible13 = val)}
                 transition:fade
@@ -299,6 +358,10 @@
         height: 290vh;
     }
 
+    .scene5 {
+        height: 290vh;
+    }
+
     .cierra {
         height: 500px;
     }
@@ -351,7 +414,7 @@
     .scene6 {
         display: flex;
         justify-content: center;
-        margin-top: 90vh;
+        margin-top: 85vh;
     }
 
     .scene6 h3 {
@@ -362,6 +425,27 @@
 
     .invisible {
       opacity: 0;
+    }
+
+    button {
+        border: none;
+        font-weight: 700;
+        padding: 20px;
+        border-radius: 40px;
+        font-family: 'Roboto', serif;
+        font-size: 1.2rem;
+        background-color: #77a2d3f6;
+        box-shadow: 1px 2px 2px #415872f6;
+    }
+
+    button:hover {
+        box-shadow: 1px 3px 3px #2d3d4ff6;
+        transform: translateY(3px);
+    }
+
+    button:active {
+        box-shadow: 1px 3px 3px #415872f6;
+        transform: scale(0.98);
     }
 
   </style>

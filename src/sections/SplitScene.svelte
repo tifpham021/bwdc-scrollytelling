@@ -26,6 +26,36 @@
         }
         };
     }
+
+    let featuresScene1 = [
+        'Cierra graduated with over <span>$30,000 in student loans and no financial help from family.</span>',
+        'She had to begin repaying her loans immediately after graduation.',
+        'This financial pressure shaped her job choices.'
+    ];
+
+    
+    let visibleCount = 1;
+
+    function showMore() {
+        if (visibleCount < featuresScene1.length) {
+        visibleCount += 1;
+        }
+    }
+
+    let featuresScene2 = [
+        'Laura graduated <span>debt-free with help from her family.</span>',
+        'She had more freedom to explore job opportunities.',
+        'She could afford to take lower-paying internships.'
+    ];
+
+    
+    let visibleCount1 = 1;
+
+    function showMore1() {
+        if (visibleCount1 < featuresScene2.length) {
+        visibleCount1 += 1;
+        }
+    }
   </script>
     <div class="background-wrapper">
         <div class="person-column">
@@ -41,9 +71,14 @@
                 use:inView={(val) => (visible3 = val)}
                 transition:fade
                 class:invisible={!visible3}>
-                <p>Cierra graduated with <span>over $30,000 in student loans and no financial help from family.</span></p>
-                <p>She had to begin repaying her loans immediately after graduation.</p>
-                <p>This financial pressure shaped her job choices.</p>
+                <ol>
+                    {#each featuresScene1.slice(0, visibleCount) as feature}
+                      <li>{@html feature}</li>
+                    {/each}
+                  </ol>
+                  {#if visibleCount < featuresScene1.length}
+                    <button on:click={showMore}>Show More</button>
+                  {/if}
             </div>
         </div>
       <Scroller layout="center">
@@ -75,9 +110,14 @@
                 use:inView={(val) => (visible3 = val)}
                 transition:fade
                 class:invisible={!visible3}>
-                <p>Laura graduated <span>debt-free with help from her family.</span></p>
-                <p>She had more freedom to explore job opportunities.</p>
-                <p>She could afford to take lower-paying internships.</p>
+                <ol>
+                    {#each featuresScene2.slice(0, visibleCount1) as feature}
+                      <li>{@html feature}</li>
+                    {/each}
+                  </ol>
+                  {#if visibleCount1 < featuresScene2.length}
+                    <button on:click={showMore1}>Show More</button>
+                  {/if}
             </div>
         </div>
     </div>
@@ -178,7 +218,7 @@
         padding: 20px;
     }
 
-    .scroll-text-cierra p, .scroll-text-laura p {
+    .scroll-text-cierra li, .scroll-text-laura li {
         color: black;
         font-family: 'Inter', serif;
         font-weight: 300;
@@ -196,10 +236,39 @@
         font-family: 'Roboto', serif;
         font-weight: 700;
         font-size: 1em;
+    } 
+
+    :global(.scroll-text-cierra span),
+    :global(.scroll-text-laura span) {
+    font-family: 'Roboto', serif;
+    font-weight: 700;
+    font-size: 1em;
     }
 
     .invisible {
       opacity: 0;
+    }
+
+    button {
+        font: 'Roboto', serif;
+        font-weight: 700;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 30px;
+        font-size: 1.2rem;
+        background-color: #893b60;
+        box-shadow: 1px 2px 2px #491f33;
+        color: white;
+    }
+
+    button:hover {
+        box-shadow: 1px 3px 3px #491f33;
+        transform: translateY(3px);
+    }
+
+    button:active {
+        box-shadow: 1px 3px 3px #491f33;
+        transform: scale(0.98);
     }
 
   </style>
