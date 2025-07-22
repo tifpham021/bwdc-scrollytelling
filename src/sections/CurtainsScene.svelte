@@ -71,5 +71,17 @@
     .invisible {
       opacity: 0;
     }
+
+    @media (max-width: 1009px) {
+
+      .background-wrapper {
+        
+      }
+      h3 {
+        font-size: clamp(1.6rem, 4vw, 2.2rem);
+        transform: translateY(100%);
+      }
+
+    }
   </style>
   

@@ -28,7 +28,9 @@
       {/snippet}
   
       {#snippet scrolly()}
+      <div class="content">
         <h3 use:inView transition:fade="{{ duration: 300 }}" class:invisible={!visible}>They both graduated high school in 2015.</h3>
+      </div>
       {/snippet}
     </Scroller>
   </div>
@@ -51,17 +53,37 @@
         font-weight: 500;
         background-color: #A1BDD9;
         max-width: 550px;
-        font-size: 2.4em;
+        font-size: 2.4rem;
         text-align: center;
         padding: 40px 25px;
         border-radius: 70px;
         display: flex;
         align-self: center;
         transition: opacity 0.5s ease-in-out;
+        justify-self: center;
     }
 
     .invisible {
       opacity: 0;
+    }
+
+    .content {
+      margin-top: 40vh;
+    }
+
+    @media (max-width: 1005px) {
+      h3 {
+        font-size: 1.8;
+        max-width: 350px;
+      }
+    }
+
+    @media (max-width: 1009px) {
+      h3 {
+        font-size: 2.2rem;
+        max-width: 380px;
+        padding: 30px;
+      }
     }
   
   </style>

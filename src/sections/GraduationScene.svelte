@@ -129,6 +129,32 @@
         height: 250vh;
         align-content: center;
     }
+
+    @media (max-width: 750px) {
+      .background-wrapper {
+        height: 150vh;
+        display: flex;
+        justify-items: center;
+      }
+
+      .grad-stage {
+        width: 100%;
+      }
+
+      .scrolly {
+        position: relative; 
+        align-content: center;
+      }
+
+      h3 {
+        top: 0;
+        position: absolute;
+        margin: 0 auto;
+        font-size: 1.9rem;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
   
   </style>
   

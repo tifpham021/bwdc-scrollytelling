@@ -111,6 +111,17 @@
       p {
         font-size: 2rem;
       }
+
     }
+
+    @media (max-width: 1309px) {
+        .top {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+    }
+
   </style>
   
+

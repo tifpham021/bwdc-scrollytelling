@@ -68,6 +68,8 @@
         background-image: url("/bwdc-scrollytelling/goal-scene.png");
         background-position: center;
         background-attachment: fixed;
+        justify-content: center;
+        align-items: center;
     }
 
     h3 {
@@ -112,6 +114,41 @@
         z-index: 1;
         align-self: flex-end;
         height: 180px;
+    }
+
+
+    @media (max-width: 750px) {
+      h3 {
+        font-size: 2rem;
+        max-width: 250px;
+      }
+
+      .houses img{
+            width: clamp(100px, 2vh, 200px)
+        }
+
+    }
+
+    @media (max-width: 900px) {
+
+        .houses img{
+            width: clamp(350px, 3vh, 400px)
+        }
+
+    }
+
+
+    @media (max-width: 950px) {
+        .houses {
+            gap: 0;
+        }
+    }
+
+    @media (max-width: 1100px) {
+        .rightSign, .leftSign {
+            display: none;
+        }
+
     }
 
   

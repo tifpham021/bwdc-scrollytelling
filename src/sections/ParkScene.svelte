@@ -120,7 +120,7 @@
     background-color: transparent;
     text-align: center;
     font-family: "IBM Plex Mono", serif;
-    font-size: 3.7em;
+    font-size: 3.7rem;
     justify-self: center;
     max-width: 700px;
     margin-top: -15%;
@@ -194,4 +194,47 @@
   .invisible {
       opacity: 0;
   }
+
+
+@media (max-width: 991px) {
+  .park-content  h1{
+      max-width: 300px;
+      margin-top: 5%;
+      font-size: 1.5rem;
+    }
+
+    .background-wrapper {
+      background-attachment: block;
+    }
+
+}
+
+@media (max-width: 1009px) {
+  .park-content {
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .park-content h1 {
+      font-size: 2rem;
+      max-width: 500px;
+    }
+
+    .character-intro {
+      flex-direction: column;
+      margin: 0 auto;
+    }
+}
+
+@media (max-width: 1125px) {
+  .tree {
+    display: none;
+  }
+}
+
+@media (max-width: 1201px) {
+  .park-content h1 {
+      font-size: 3rem;
+    }
+}
 </style>
