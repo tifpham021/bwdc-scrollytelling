@@ -180,7 +180,7 @@
     }
 
     .cierra-salary {
-        margin-top: 3%;
+        margin-top: 2%;
     }
   </style>
   

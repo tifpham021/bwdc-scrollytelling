@@ -82,33 +82,35 @@
       <Scroller layout="left">
         {#snippet sticky()}
         <div class="sticky-content-1"
-        use:inView={(val) => (visible1 = val)}
-        transition:fade
-        class:invisible={!visible1}>
-            <Chart {Highcharts} options={moneyHelp} />
+            use:inView={(val) => (visible1 = val)}
+            transition:fade
+            class:invisible={!visible1}>
+                <Chart {Highcharts} options={moneyHelp} />
         </div>
         {/snippet}
   
         {#snippet scrolly()}
-        <div class="chart-explanation-1"
-        use:inView={(val) => (visible2 = val)}
-        transition:fade
-        class:invisible={!visible2}>
-            <h3>
-                Additionally, <span>White individuals are more likely than Black 
-                individuals to receive family financial support for education</span>—leaving 
-                many Black students, like Cierra, with no choice but to take out student loans.
-            </h3>
-        </div>
-        <div class="chart-explanation-2"
-        use:inView={(val) => (visible3 = val)}
-        transition:fade
-        class:invisible={!visible3}>
-            <h3>
-                None of this is coincidental—it <span> deep-rooted inequalities. </span>
-                It shows how generational wealth and access significantly affects who 
-                takes on debt, shaping careers and futures alike.
-            </h3>
+        <div class="scrolly-content">
+            <div class="chart-explanation-1"
+            use:inView={(val) => (visible2 = val)}
+            transition:fade
+            class:invisible={!visible2}>
+                <h3>
+                    Additionally, <span>White individuals are more likely than Black 
+                    individuals to receive family financial support for education</span>—leaving 
+                    many Black students, like Cierra, with no choice but to take out student loans.
+                </h3>
+            </div>
+            <div class="chart-explanation-2"
+            use:inView={(val) => (visible3 = val)}
+            transition:fade
+            class:invisible={!visible3}>
+                <h3>
+                    None of this is coincidental—it <span> deep-rooted inequalities. </span>
+                    It shows how generational wealth and access significantly affects who 
+                    takes on debt, shaping careers and futures alike.
+                </h3>
+            </div>
         </div>
         {/snippet}
       </Scroller>
@@ -124,7 +126,7 @@
       background-image: url("/bwdc-scrollytelling/split-screen-scene.png");
       background-position: center;
       background-attachment: fixed;
-      height: 350vh;
+      height: 300vh;
     }
 
     .sticky-content-1 {
@@ -140,10 +142,9 @@
     .chart-explanation-1 {
         display: flex;
         justify-content: center;
-        margin-top: 100vh;
         width: 100%;
         transition: opacity 0.5s ease-in-out;
-
+        margin-top: 100vh;
     }
 
     .chart-explanation-2 {
@@ -151,6 +152,7 @@
         justify-content: center;
         width: 100%;
         transition: opacity 0.5s ease-in-out;
+        margin-top: 50vh;
     }
     
     .chart-explanation-1 h3, .chart-explanation-2 h3 {
@@ -173,6 +175,10 @@
 
     .invisible {
       opacity: 0;
+    }
+
+    .scrolly-content {
+        height: 250vh;
     }
 
   </style>

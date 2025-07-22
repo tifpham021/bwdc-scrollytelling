@@ -129,24 +129,26 @@
         {/snippet}
   
         {#snippet scrolly()}
-        <div class="chart-explanation-1" 
-        use:inView={(val) => (visible2 = val)}
-        transition:fade
-        class:invisible={!visible2}>
-            <h3>
-                What happened to Cierra and Laura plays out at a much bigger scale. Let's take a 
-                moment to explore the data on the left.
-            </h3>
-        </div>
-        <div class="chart-explanation-2"
-        use:inView={(val) => (visible3 = val)}
-        transition:fade
-        class:invisible={!visible3}>
-            <h3>
-                Over more than two decades, data shows that <span>Black households 
-                consistently carried higher student loan debt compared to White 
-                households,</span> with the largest gap reaching 16.1% in 2022.
-            </h3>
+        <div class="scrolly-content">
+            <div class="chart-explanation-1" 
+            use:inView={(val) => (visible2 = val)}
+            transition:fade
+            class:invisible={!visible2}>
+                <h3>
+                    What happened to Cierra and Laura plays out at a much bigger scale. Let's take a 
+                    moment to explore the data on the left.
+                </h3>
+            </div>
+            <div class="chart-explanation-2"
+            use:inView={(val) => (visible3 = val)}
+            transition:fade
+            class:invisible={!visible3}>
+                <h3>
+                    Over more than two decades, data shows that <span>Black households 
+                    consistently carried higher student loan debt compared to White 
+                    households,</span> with the largest gap reaching 16.1% in 2022.
+                </h3>
+            </div>
         </div>
         {/snippet}
       </Scroller>
@@ -163,7 +165,7 @@
       background-image: url("/bwdc-scrollytelling/split-screen-scene.png");
       background-position: center;
       background-attachment: fixed;
-      height: 330vh;
+      height: 370vh;
       display: flex;
     }
 
@@ -194,7 +196,7 @@
         margin-top: 1vh;
         width: 100%;
         padding: 0 4rem;
-
+        margin-top: 60vh;
     }
     
     .chart-explanation-1 h3, .chart-explanation-2 h3 {
@@ -213,6 +215,10 @@
         font-family: 'Roboto', serif;
         font-weight: 700;
         font-size: 1em;
+    }
+
+    .scrolly-content {
+        height: 150vh;
     }
 
   </style>

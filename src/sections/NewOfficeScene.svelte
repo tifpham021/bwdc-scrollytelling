@@ -93,7 +93,7 @@
                         While Cierra’s <span>credit score is decent,</span> it falls just 
                         <span>below the threshold </span> for most conventional mortgage 
                         approvals— especially with her high student debt and lack of savings.
-                        <br><br> She’s eligible for only a limited number of loan options—usually 
+                        <br><br> <span>She’s eligible for only a limited number of loan options</span>—usually 
                         with higher interest rates.
                     </p>
                 </div>
@@ -199,13 +199,14 @@
         background-color: #D3EBF4;
         max-width: 360px;
         font-size: 1.8em;
-        padding: 20px 55px;
+        padding: 35px 55px;
         border-radius: 80px;
         display: flex;
         align-self: center;
         color: black;
         text-align: center;
         transition: opacity 0.5s ease-in-out;
+        gap: 20px;
     }
 
     .text h3 {
