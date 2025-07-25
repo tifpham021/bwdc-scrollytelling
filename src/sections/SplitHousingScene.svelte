@@ -82,7 +82,7 @@
                     class:invisible={!visible4}>
                     <h4>
                     <span>Laura</span> on that other hand <span> quickly approved for a 
-                        mortgage</span> and was able to <span> her first home with ease.</span>
+                        mortgage</span> and was able to <span> purchase her first home with ease.</span>
                     </h4>
                 </div>
             </div>

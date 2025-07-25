@@ -8,7 +8,7 @@
   import laura1 from "../images/laura1.png";
   import cierraStanding from "../images/cierra-standing1.png";
   import lauraStanding from "../images/laura-standing1.png";
-  import { fade } from 'svelte/transition';
+  import { fade } from "svelte/transition";
 
   let visible1 = false;
   let visibleText = false;
@@ -29,9 +29,9 @@
     return {
       destroy() {
         observer.unobserve(node);
-      }
+      },
     };
-}
+  }
 </script>
 
 <div class="park-scene">
@@ -41,26 +41,48 @@
 
       {#snippet scrolly()}
         <div class="park-content">
-          <img src={tree1} alt="tree" class="tree" use:inView={(val) => (visible1 = val)}
-          transition:fade
-          class:invisible={!visible1}/>
-          <div class="center">
-            <h1 use:inView={(val) => (visibleText = val)}
-              transition:fade
-              class:invisible={!visibleText} class="park-text">Here's Who Our Story Will Follow Today</h1>
-            <img src={bench} alt="bench" class="bench" use:inView={(val) => (visibleBench = val)}
+          <img
+            src={tree1}
+            alt="tree"
+            class="tree"
+            use:inView={(val) => (visible1 = val)}
             transition:fade
-            class:invisible={!visibleBench}/>
+            class:invisible={!visible1}
+          />
+          <div class="center">
+            <h1
+              use:inView={(val) => (visibleText = val)}
+              transition:fade
+              class:invisible={!visibleText}
+              class="park-text"
+            >
+              Here's Who Our Story Will Follow Today
+            </h1>
+            <img
+              src={bench}
+              alt="bench"
+              class="bench"
+              use:inView={(val) => (visibleBench = val)}
+              transition:fade
+              class:invisible={!visibleBench}
+            />
           </div>
-          <img src={tree2} alt="tree" class="tree" use:inView={(val) => (visible1 = val)}
-          transition:fade
-          class:invisible={!visible1}/>
+          <img
+            src={tree2}
+            alt="tree"
+            class="tree"
+            use:inView={(val) => (visible1 = val)}
+            transition:fade
+            class:invisible={!visible1}
+          />
         </div>
 
-        <div class="character-intro" 
+        <div
+          class="character-intro"
           use:inView={(val) => (visible2 = val)}
           transition:fade
-          class:invisible={!visible2}>
+          class:invisible={!visible2}
+        >
           <div class="cierra">
             <img src={cierra1} alt="icon of cierra" class="cierra-img" />
             <h2>This is Cierra</h2>
@@ -71,10 +93,12 @@
           </div>
         </div>
 
-        <div class="characters-standing" 
+        <div
+          class="characters-standing"
           use:inView={(val) => (visible3 = val)}
           transition:fade
-          class:invisible={!visible3}>
+          class:invisible={!visible3}
+        >
           <div class="cierra-standing">
             <img
               src={cierraStanding}
@@ -155,6 +179,7 @@
     height: 350px;
     width: 350px;
     filter: drop-shadow(0 0 35px #c5ff96c6);
+    margin-bottom: 9%;
   }
 
   .laura-img {
@@ -192,12 +217,11 @@
   }
 
   .invisible {
-      opacity: 0;
+    opacity: 0;
   }
 
-
-@media (max-width: 991px) {
-  .park-content  h1{
+  @media (max-width: 991px) {
+    .park-content h1 {
       max-width: 300px;
       margin-top: 5%;
       font-size: 1.5rem;
@@ -206,16 +230,15 @@
     .background-wrapper {
       background-attachment: block;
     }
-
-}
-
-@media (max-width: 1009px) {
-  .park-content {
-    justify-content: center;
-    margin: 0 auto;
   }
 
-  .park-content h1 {
+  @media (max-width: 1009px) {
+    .park-content {
+      justify-content: center;
+      margin: 0 auto;
+    }
+
+    .park-content h1 {
       font-size: 2rem;
       max-width: 500px;
     }
@@ -224,17 +247,17 @@
       flex-direction: column;
       margin: 0 auto;
     }
-}
-
-@media (max-width: 1125px) {
-  .tree {
-    display: none;
   }
-}
 
-@media (max-width: 1201px) {
-  .park-content h1 {
+  @media (max-width: 1125px) {
+    .tree {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1201px) {
+    .park-content h1 {
       font-size: 3rem;
     }
-}
+  }
 </style>
